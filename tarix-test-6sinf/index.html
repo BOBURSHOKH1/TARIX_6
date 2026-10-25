@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="O'zbekiston umumta'lim maktablarining 6-sinf Tarix (Qadimgi dunyo tarixi) darsligi 2022-yilgi nashri asosidagi interaktiv test tizimi.">
+  <title>6-Sinf Qadimgi Dunyo Tarixi — Interaktiv Test Tizimi (2022-yilgi darslik)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Confetti Canvas nishonlash uchun -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <div class="app-container">
+    <!-- ===================================================================
+         ASOSIY HEADER
+         =================================================================== -->
+    <header class="main-header">
+      <div class="header-inner">
+        <a href="#" class="brand-wrapper" id="brandHomeBtn" title="Bosh sahifaga qaytish">
+          <div class="brand-emblem">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/>
+            </svg>
+          </div>
+          <div class="brand-titles">
+            <h1>6-Sinf Tarix Testi</h1>
+            <p>Qadimgi Dunyo Tarixi • 2022-yilgi yangi nashr</p>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <div class="quick-stats-badge" title="Foydalanuvchi umumiy ko'rsatkichlari">
+            <div class="stat-item">
+              <span>🏆 Rekord:</span>
+              <span class="val" id="headerBestScore">0%</span>
+            </div>
+            <div class="stat-item" style="border-left: 1px solid var(--border-gold); padding-left: 10px;">
+              <span>📝 Testlar:</span>
+              <span class="val" id="headerTestsCount">0</span>
+            </div>
+          </div>
+
+          <button class="btn-icon" id="btnSoundToggle" title="Ovozni yoqish / o'chirish">🔊</button>
+          <button class="btn-icon" id="btnTextbookInfo" title="2022 darslik haqida ma'lumot">📖</button>
+          <button class="btn-icon" id="btnSettings" title="Sozlamalar">⚙️</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================================================================
+         1. DASHBOARD / BOSH SAHIFA
+         =================================================================== -->
+    <main id="screenDashboard" class="app-screen active">
+      <!-- Hero Banner -->
+      <section class="hero-banner">
+        <div class="hero-badge-tag">
+          <span>🏛️</span> Rasmiy darslik dasturi asosida (2022)
+        </div>
+        <h2>O'tmish sirlarini kashf eting va tarixdan o'z bilimlaringizni sinang!</h2>
+        <p>
+          Ushbu interaktiv platforma O'zbekiston Respublikasi umumiy o'rta ta'lim maktablarining 
+          <strong>"Qadimgi dunyo tarixi" (6-sinf, 2022-yil nashri)</strong> darsligi asosida ishlab chiqilgan.
+          Barcha bo'limlar, sanalar, tarixiy shaxslar va madaniy yodgorliklar darslikka 100% moslashtirilgan.
+        </p>
+
+        <div class="hero-stats-row">
+          <div class="hero-stat-card">
+            <div class="stat-icon">📊</div>
+            <div>
+              <div class="stat-title">Topshirilgan testlar</div>
+              <div class="stat-num" id="dashTotalTests">0</div>
+            </div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-icon">⭐</div>
+            <div>
+              <div class="stat-title">Eng yuqori natija</div>
+              <div class="stat-num" id="dashBestScore">0 ball (0%)</div>
+            </div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-icon">🎯</div>
+            <div>
+              <div class="stat-title">O'rtacha o'zlashtirish</div>
+              <div class="stat-num" id="dashAvgPercent">0%</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Test Rejimlari -->
+      <section class="section-headline">
+        <h3>⚡ <span>Test Rejimini</span> Tanlang</h3>
+      </section>
+
+      <div class="modes-grid">
+        <div class="mode-card" data-mode="quick10">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">⚡</div>
+              <div class="mode-title">Tezkor Test</div>
+            </div>
+            <p class="mode-desc">
+              10 ta saralangan savol. Qisqa tanaffuslarda yoki dars oldidan bilimlarni tezda tekshirish uchun qulay.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>⏱️ 10 daqiqa</span>
+            <span>📝 10 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card featured" data-mode="standard">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">📘</div>
+              <div class="mode-title">Standart Test</div>
+            </div>
+            <p class="mode-desc">
+              20 ta aralash darslik savoli. O'quvchilar uchun eng maqbul format va to'liq bilimlar monitoringi.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>⏱️ 20 daqiqa</span>
+            <span>📝 20 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="deep30">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">📚</div>
+              <div class="mode-title">Kengaytirilgan Test</div>
+            </div>
+            <p class="mode-desc">
+              30 ta savoldan iborat chuqurlashtirilgan sinov. Barcha beshta bo'limni qamrab oladi.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>⏱️ 30 daqiqa</span>
+            <span>📝 30 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="large50">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">🏆</div>
+              <div class="mode-title">Katta Bilimlar Sinovi</div>
+            </div>
+            <p class="mode-desc">
+              50 ta savoldan iborat to'liq darslik bo'yicha yakuniy nazorat ishi va olimpiadalarga tayyorgarlik.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>⏱️ 45 daqiqa</span>
+            <span>📝 50 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="exam">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">🎓</div>
+              <div class="mode-title">Imtihon Rejimi</div>
+            </div>
+            <p class="mode-desc">
+              Qat'iy taymer, orqaga sanash va yakuniy rasmiy baholash. Haqiqiy imtihon muhiti yaratiladi.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>⏱️ Jonli taymer</span>
+            <span>📝 25 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="practice">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">💡</div>
+              <div class="mode-title">Mashg'ulot Rejimi</div>
+            </div>
+            <p class="mode-desc">
+              Har bir savolga javob berilgach, darhol to'g'ri javob va darslikdan batafsil izoh ko'rsatiladi.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>⏱️ Cheklovsiz</span>
+            <span>📖 Darslik sharhlari</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Darslik bo'limlari bo'yicha mashg'ulot -->
+      <section class="section-headline">
+        <h3>📖 <span>Darslik Bo'limlari</span> Bo'yicha Mashq (Mavzulashtirilgan)</h3>
+      </section>
+
+      <div class="chapters-grid" id="chaptersList">
+        <!-- Javascript orqali render qilinadi -->
+      </div>
+
+      <!-- Darslik xabarnomasi va PDF taqdim etish ma'lumotnomasi -->
+      <div class="textbook-notice-box">
+        <div class="notice-content">
+          <div class="notice-icon">📚</div>
+          <div class="notice-text">
+            <h4>2022-yilgi "Qadimgi Dunyo Tarixi" darsligi haqida</h4>
+            <p>
+              Tizimdagi barcha savollar A.S. Sagdullayev va V.A. Kostetskiy muallifligidagi 2022-yil nashriga to'liq mos keladi.
+              Agar sizda ushbu darslikning elektron PDF varianti bo'lsa yoki savollar qo'shmoqchi bo'lsangiz, batafsil tanishishingiz mumkin.
+            </p>
+          </div>
+        </div>
+        <button class="btn btn-secondary" onclick="document.getElementById('textbookModal').classList.add('open')">
+          Batafsil ma'lumot ↗
+        </button>
+      </div>
+    </main>
+
+    <!-- ===================================================================
+         2. TEST TOPSHIRISH EKRANI (ACTIVE TEST SCREEN)
+         =================================================================== -->
+    <main id="screenTest" class="app-screen">
+      <!-- Test yuqori paneli (Top Bar) -->
+      <div class="test-topbar">
+        <div class="test-topbar-row">
+          <div class="test-mode-badge" id="testModeName">Standart Test</div>
+          
+          <div class="test-timer-wrapper" id="testTimerWrapper" style="display: none;">
+            <span>⏱️</span>
+            <span id="testTimerText">20:00</span>
+          </div>
+        </div>
+
+        <div class="test-progress-info">
+          <span id="testProgressText">Savol: <strong>1</strong> / 20</span>
+          <span id="testPercentText">5%</span>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="testProgressBar"></div>
+        </div>
+      </div>
+
+      <!-- Savollar palitrasi ochish paneli -->
+      <div class="palette-toggle-bar" id="paletteToggleBar">
+        <div class="palette-label">
+          <span>🔢</span> Savollar xaritasi (Istalgan savolga to'g'ridan-to'g'ri o'tish)
+        </div>
+        <span style="font-size: 0.85rem; color: var(--gold-light);">Ko'rsatish / Yashirish ▼</span>
+      </div>
+
+      <div class="question-palette-container" id="paletteContainer">
+        <div class="palette-grid" id="paletteGrid">
+          <!-- Raqamli chiplar JavaScript orqali joylanadi -->
+        </div>
+      </div>
+
+      <!-- Asosiy savol kartasi -->
+      <div class="question-card">
+        <div class="question-tags-row">
+          <span class="tag-badge section-tag" id="questionSectionTag">I Bo'lim</span>
+          <span class="tag-badge verified-tag">✅ 2022 darslik bo'yicha tekshirilgan</span>
+          <span class="tag-badge" style="background: rgba(255,255,255,0.06); color: var(--text-muted);" id="questionTopicTag">Mavzu: Qadimgi davr</span>
+        </div>
+
+        <h2 class="question-text" id="questionText">
+          Savol matni bu yerda yuklanadi...
+        </h2>
+
+        <!-- Variantlar (A, B, C, D) -->
+        <div class="options-list" id="optionsList">
+          <!-- Javascript orqali render qilinadi -->
+        </div>
+
+        <!-- Mashg'ulot rejimidagi tushuntirish qutisi -->
+        <div class="explanation-box" id="explanationBox">
+          <div class="explanation-title">
+            <span>💡</span> Tarixiy darslik izohi:
+          </div>
+          <div class="explanation-content" id="explanationContent">
+            Izoh matni...
+          </div>
+        </div>
+      </div>
+
+      <!-- Test boshqaruv tugmalari (Footer controls) -->
+      <div class="test-controls-row">
+        <div class="test-controls-left">
+          <button class="btn btn-danger" id="btnQuitTest">
+            ✕ Chiqish
+          </button>
+        </div>
+
+        <div class="test-controls-right">
+          <button class="btn btn-secondary" id="btnPrevQuestion">
+            ⬅️ Oldingi savol
+          </button>
+
+          <button class="btn btn-secondary" id="btnCheckAnswer" style="display: none; border-color: var(--gold-primary); color: var(--gold-bright);">
+            💡 Javobni tekshirish
+          </button>
+
+          <button class="btn btn-primary" id="btnNextQuestion">
+            Keyingi savol ➡️
+          </button>
+
+          <button class="btn btn-finish" id="btnFinishTest" style="display: none;">
+            🏁 Testni yakunlash
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===================================================================
+         3. NATIJALAR EKRANI (RESULTS SCREEN)
+         =================================================================== -->
+    <main id="screenResults" class="app-screen">
+      <div class="results-card">
+        <div class="results-badge-wrapper">
+          <div class="grade-trophy" id="resultTrophy">🏆</div>
+          <h2 class="grade-badge-title" id="resultGradeTitle">A'lo! (5 baho)</h2>
+          <p class="grade-comment" id="resultGradeComment">
+            Siz 6-sinf Tarix fani bo'yicha ajoyib natija ko'rsatdingiz!
+          </p>
+        </div>
+
+        <!-- Statistika bloki -->
+        <div class="results-stats-grid">
+          <div class="result-stat-box percent">
+            <div class="num" id="resultPercent">100%</div>
+            <div class="lbl">O'zlashtirish</div>
+          </div>
+          <div class="result-stat-box correct">
+            <div class="num" id="resultCorrectCount">20</div>
+            <div class="lbl">To'g'ri javoblar</div>
+          </div>
+          <div class="result-stat-box wrong">
+            <div class="num" id="resultWrongCount">0</div>
+            <div class="lbl">Noto'g'ri javoblar</div>
+          </div>
+          <div class="result-stat-box time">
+            <div class="num" id="resultTimeSpent">4 daq 12 son</div>
+            <div class="lbl">Sarflangan vaqt</div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px;" id="resultScoreText">
+          20 / 20 to'g'ri
+        </p>
+
+        <!-- Natijalar harakat tugmalari -->
+        <div class="results-actions-row">
+          <button class="btn btn-primary" id="btnRestartTest">
+            🔄 Qayta topshirish
+          </button>
+
+          <button class="btn btn-secondary" id="btnRetryMistakes" style="display: none; border-color: var(--error-border); color: #fca5a5;">
+            ❌ Faqat xatolar ustida ishlash
+          </button>
+
+          <button class="btn btn-secondary" id="btnHomeFromResults">
+            🏠 Bosh sahifaga qaytish
+          </button>
+        </div>
+      </div>
+
+      <!-- Xatolar va barcha savollar tahlili (Review Section) -->
+      <section class="review-section">
+        <div class="review-headline">
+          <h3>📋 Savollar tahlili va darslik sharhlari</h3>
+          <div class="review-filters">
+            <button class="filter-btn active" data-filter="all">Barchasi</button>
+            <button class="filter-btn" data-filter="wrong">Faqat xatolar</button>
+            <button class="filter-btn" data-filter="correct">Faqat to'g'rilar</button>
+          </div>
+        </div>
+
+        <div class="review-list" id="reviewList">
+          <!-- Savollar tahlili JavaScript orqali joylanadi -->
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================================================================
+         ASOSIY FOOTER
+         =================================================================== -->
+    <footer class="main-footer">
+      <p><strong>6-Sinf Qadimgi Dunyo Tarixi</strong> — Zamonaviy interaktiv test va bilimlar monitoringi platformasi.</p>
+      <p>O'zbekiston Respublikasi Xalq ta'limi vazirligi (Maktabgacha va maktab ta'limi vazirligi) 2022-yil darslik dasturi asosida tuzilgan.</p>
+      <p style="color: var(--text-gold); font-size: 0.78rem; margin-top: 8px;">
+        Klaviatura yordamida boshqarish: <strong>A, B, C, D</strong> (variantlar) • <strong>← / →</strong> (oldingi / keyingi) • <strong>Enter</strong> (tekshirish)
+      </p>
+    </footer>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 1: DARSLIK HAQIDA VA SAVOLLAR BAZASI
+       =================================================================== -->
+  <div class="modal-overlay" id="textbookModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>📖 2022-yilgi Darslik Haqida</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Ushbu veb-ilova O'zbekiston maktablarining 6-sinf o'quvchilari uchun mo'ljallangan bo'lib, 
+          quyidagi rasmiy darslikka asoslanadi:
+        </p>
+
+        <h4>📚 Asosiy darslik ma'lumotlari:</h4>
+        <ul>
+          <li><strong>Nomi:</strong> Qadimgi dunyo tarixi (6-sinf)</li>
+          <li><strong>Mualliflar:</strong> A.S. Sagdullayev, V.A. Kostetskiy va boshqalar</li>
+          <li><strong>Nashr yili:</strong> 2022-yil (Toshkent)</li>
+          <li><strong>Bo'limlar:</strong> 5 ta asosiy bo'lim (Ibtidoiy jamoa, Qadimgi Sharq, Yunoniston, Qadimgi O'rta Osiyo, Rim)</li>
+        </ul>
+
+        <h4>✅ Tekshirilgan savollar mezonlari:</h4>
+        <p>
+          Tizimdagi barcha savollar to'q sariq yoki yashil belgi bilan ko'rsatilgan bo'lib, 
+          aniq tarixiy faktlar, shaxslar (To'maris, Shiroq, Spitamen, Romul, Perikl, Hammurapi), 
+          sanalar va arxeologik yodgorliklar (Teshiktosh, Jarqo'ton, Zamonbobo, Fayoztepa) darslik bo'yicha to'liq tekshirilgan.
+        </p>
+
+        <h4>📤 Qo'shimcha savollar yoki PDF darslik taqdim etish:</h4>
+        <p>
+          Agar sizda ushbu 2022-yilgi darslikning to'liq PDF nusxasi bo'lsa, 
+          savollar bazasini yuzlab yangi savollar bilan yanada boyitishimiz mumkin.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-modal-close">Tushunarli</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 2: SOZLAMALAR (SETTINGS)
+       =================================================================== -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>⚙️ Ilova Sozlamalari</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-item">
+          <div class="setting-label">
+            <h5>Ovoz effektlari (Audio)</h5>
+            <p>Javob tanlash, to'g'ri/noto'g'ri signallari va yakuniy g'alaba ohangi</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="settingSoundToggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-label">
+            <h5>Variantlarni aralashtirish (Shuffle)</h5>
+            <p>Har safar yangi test boshlanganda javob variantlari o'rnini tasodifiy almashtirish</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="settingShuffleToggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-label">
+            <h5>Dizayn mavzusi</h5>
+            <p>To'q ko'k va Qirollik oltin tuslari (Dark Blue & Gold theme)</p>
+          </div>
+          <span style="font-size: 0.82rem; color: var(--gold-bright); font-weight: 700;">Standart (Faol)</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-modal-close">Saqlash va yopish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 3: TESTNI YAKUNLASHNI TASDIQLASH (CONFIRM FINISH)
+       =================================================================== -->
+  <div class="modal-overlay" id="confirmFinishModal">
+    <div class="modal-dialog" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>⚠️ Testni yakunlash</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Siz hali barcha savollarga javob bermadingiz. 
+          Rostdan ham testni muddatidan oldin yakunlab, natijalarni hisoblamoqchimisiz?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-modal-close">Davom ettirish</button>
+        <button class="btn btn-finish" id="btnConfirmFinishYes">Ha, yakunlash</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skriptlarni yuklash -->
+  <script src="questions.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

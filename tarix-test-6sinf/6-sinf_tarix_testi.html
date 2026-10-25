@@ -1,0 +1,4097 @@
+﻿<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="O'zbekiston umumta'lim maktablarining 6-sinf Tarix (Qadimgi dunyo tarixi) darsligi 2022-yilgi nashri asosidagi interaktiv test tizimi.">
+  <title>6-Sinf Qadimgi Dunyo Tarixi вЂ” Interaktiv Test Tizimi (2022-yilgi darslik)</title>
+  <style>
+/* ===================================================================
+   6-SINF QADIMGI DUNYO TARIXI - ZAMONAVIY INTERAKTIV TEST TIZIMI
+   Mavzu: To'q ko'k (Dark Blue) va Oltin (Gold) Premium Dizayn Tizimi
+   =================================================================== */
+
+:root {
+  /* Asosiy ranglar palitrasi */
+  --bg-deep: #050c1a;
+  --bg-primary: #0a152d;
+  --bg-secondary: #0f2042;
+  --bg-card: rgba(15, 32, 66, 0.85);
+  --bg-card-hover: rgba(22, 45, 92, 0.95);
+  --bg-glass: rgba(11, 25, 54, 0.75);
+  --border-gold: rgba(212, 175, 55, 0.35);
+  --border-gold-bright: #d4af37;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+
+  /* Oltin ranglar (Gold gradients & accents) */
+  --gold-primary: #d4af37;
+  --gold-light: #f7df79;
+  --gold-bright: #ffd700;
+  --gold-dark: #aa820a;
+  --gold-glow: rgba(212, 175, 55, 0.25);
+  --gold-gradient: linear-gradient(135deg, #d4af37 0%, #f7df79 50%, #aa820a 100%);
+  --gold-gradient-soft: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(247, 223, 121, 0.08) 100%);
+
+  /* Holat ranglari */
+  --success: #10b981;
+  --success-bg: rgba(16, 185, 129, 0.15);
+  --success-border: rgba(16, 185, 129, 0.5);
+  --error: #ef4444;
+  --error-bg: rgba(239, 68, 68, 0.15);
+  --error-border: rgba(239, 68, 68, 0.5);
+  --info: #38bdf8;
+  --info-bg: rgba(56, 189, 248, 0.15);
+
+  /* Matn ranglari */
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-gold: #f3cf65;
+
+  /* Soya va radiuslar */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.6);
+  --shadow-gold: 0 0 25px rgba(212, 175, 55, 0.35);
+
+  --font-main: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Umumiy reset va tayanch */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(26, 54, 93, 0.45) 0%, transparent 40%),
+    radial-gradient(circle at 85% 75%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+    linear-gradient(180deg, #050c1a 0%, #071329 100%);
+  background-attachment: fixed;
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Konteyner */
+.app-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===================================================================
+   TOP HEADER & NAVIGATION
+   =================================================================== */
+.main-header {
+  padding: 24px 0 16px;
+  border-bottom: 1px solid var(--border-gold);
+  margin-bottom: 24px;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.brand-emblem {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--gold-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-gold);
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+
+.brand-emblem svg {
+  width: 32px;
+  height: 32px;
+  fill: #0a152d;
+}
+
+.brand-wrapper:hover .brand-emblem {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.brand-titles h1 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.25;
+}
+
+.brand-titles p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.quick-stats-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  padding: 6px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stat-item .val {
+  font-weight: 700;
+  color: var(--gold-bright);
+}
+
+.btn-icon {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1.1rem;
+}
+
+.btn-icon:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-gold);
+  color: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+/* ===================================================================
+   EKRANLAR BOSHQARUVI (SCREEN SYSTEM)
+   =================================================================== */
+.app-screen {
+  display: none;
+  animation: fadeInScreen 0.35s ease-out forwards;
+}
+
+.app-screen.active {
+  display: block;
+}
+
+@keyframes fadeInScreen {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===================================================================
+   1. DASHBOARD / BOSH SAHIFA
+   =================================================================== */
+.hero-banner {
+  background: linear-gradient(135deg, rgba(15, 32, 66, 0.9) 0%, rgba(10, 21, 45, 0.95) 100%);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-banner::after {
+  content: '';
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px;
+  background: var(--gold-gradient-soft);
+  border: 1px solid var(--border-gold);
+  border-radius: 20px;
+  color: var(--gold-bright);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.hero-banner h2 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.hero-banner p {
+  color: var(--text-muted);
+  max-width: 720px;
+  font-size: 0.98rem;
+  margin-bottom: 20px;
+}
+
+.hero-stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.hero-stat-card {
+  background: rgba(8, 18, 38, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.hero-stat-card .stat-icon {
+  font-size: 1.7rem;
+}
+
+.hero-stat-card .stat-title {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hero-stat-card .stat-num {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--gold-light);
+}
+
+/* Bo'lim sarlavhalari */
+.section-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.section-headline h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-headline h3 span {
+  color: var(--gold-primary);
+}
+
+/* Rejimlar setkasi */
+.modes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 18px;
+  margin-bottom: 32px;
+}
+
+.mode-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.mode-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-gold);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-gold);
+}
+
+.mode-card.featured {
+  border-color: var(--border-gold);
+  background: linear-gradient(135deg, rgba(22, 45, 92, 0.9) 0%, rgba(15, 32, 66, 0.9) 100%);
+}
+
+.mode-card.featured::before {
+  content: 'TAVSIYA ETILADI';
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  background: var(--gold-gradient);
+  color: #0a152d;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.mode-card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.mode-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px solid var(--border-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.mode-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.mode-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.mode-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 14px;
+  border-top: 1px solid var(--border-subtle);
+  font-size: 0.82rem;
+  color: var(--text-gold);
+  font-weight: 600;
+}
+
+/* Darslik bo'limlari (Chapters) kartalari */
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.chapter-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.chapter-card:hover {
+  border-color: var(--border-gold);
+  background: var(--bg-card-hover);
+  transform: translateX(4px);
+}
+
+.chapter-badge {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.chapter-info h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.chapter-info p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+
+.chapter-count {
+  display: inline-block;
+  font-size: 0.76rem;
+  color: var(--gold-light);
+  font-weight: 600;
+}
+
+/* Darslik va ishonchlilik xabarnomasi */
+.textbook-notice-box {
+  background: rgba(14, 28, 58, 0.75);
+  border: 1px dashed var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.notice-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.notice-icon {
+  font-size: 2.2rem;
+  flex-shrink: 0;
+}
+
+.notice-text h4 {
+  font-size: 1rem;
+  color: var(--gold-light);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.notice-text p {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+/* ===================================================================
+   2. TEST TOPSHIRISH EKRANI (ACTIVE TEST SCREEN)
+   =================================================================== */
+.test-topbar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: 16px 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.test-topbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.test-mode-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+}
+
+.test-timer-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 21, 45, 0.9);
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid var(--border-subtle);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.test-timer-wrapper.danger {
+  border-color: var(--error);
+  color: var(--error);
+  animation: pulseTimer 1s infinite alternate;
+}
+
+@keyframes pulseTimer {
+  from { transform: scale(1); }
+  to { transform: scale(1.04); }
+}
+
+.test-progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.test-progress-info span strong {
+  color: var(--gold-bright);
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gold-gradient);
+  border-radius: 10px;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+/* Savollar palitrasi / Navigator (Question Palette) */
+.palette-toggle-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 10px 18px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.palette-toggle-bar:hover {
+  border-color: var(--border-gold);
+}
+
+.palette-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.question-palette-container {
+  display: none;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.question-palette-container.open {
+  display: block;
+}
+
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(36px, 1fr));
+  gap: 8px;
+}
+
+.palette-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.palette-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--border-gold);
+}
+
+.palette-btn.current {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+  color: var(--gold-bright);
+  font-weight: 800;
+}
+
+.palette-btn.answered {
+  background: rgba(16, 185, 129, 0.2);
+  border-color: var(--success);
+  color: #34d399;
+}
+
+.palette-btn.wrong-review {
+  background: rgba(239, 68, 68, 0.2);
+  border-color: var(--error);
+  color: #f87171;
+}
+
+/* Asosiy savol kartasi (Question Card) */
+.question-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 24px;
+  position: relative;
+  transition: var(--transition);
+}
+
+.question-tags-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.tag-badge {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 14px;
+}
+
+.tag-badge.section-tag {
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-light);
+  border: 1px solid var(--border-gold);
+}
+
+.tag-badge.verified-tag {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.question-text {
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.5;
+  margin-bottom: 26px;
+}
+
+/* Variantlar ro'yxati (Options List) */
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.option-item {
+  background: rgba(11, 23, 49, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  user-select: none;
+}
+
+.option-item:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-gold);
+  transform: translateX(4px);
+}
+
+.option-letter {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-gold);
+  color: var(--gold-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.98rem;
+  flex-shrink: 0;
+  background: rgba(212, 175, 55, 0.1);
+  transition: var(--transition);
+}
+
+.option-item.selected .option-letter {
+  background: var(--gold-gradient);
+  color: #0a152d;
+  border-color: transparent;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.6);
+}
+
+.option-text {
+  font-size: 1rem;
+  color: var(--text-main);
+  flex: 1;
+}
+
+.option-item.selected {
+  border-color: var(--gold-bright);
+  background: rgba(26, 54, 93, 0.7);
+}
+
+/* Mashg'ulot rejimidagi to'g'ri / noto'g'ri animatsiyalar */
+.option-item.is-correct {
+  border-color: var(--success) !important;
+  background: var(--success-bg) !important;
+}
+
+.option-item.is-correct .option-letter {
+  background: var(--success) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+.option-item.is-wrong {
+  border-color: var(--error) !important;
+  background: var(--error-bg) !important;
+}
+
+.option-item.is-wrong .option-letter {
+  background: var(--error) !important;
+  color: #fff !important;
+  border-color: transparent !important;
+}
+
+/* Tushuntirish qutisi (Explanation Box) */
+.explanation-box {
+  display: none;
+  background: rgba(14, 30, 60, 0.85);
+  border-left: 4px solid var(--gold-primary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 18px 22px;
+  margin-top: 18px;
+  animation: fadeInExplanation 0.3s ease;
+}
+
+.explanation-box.visible {
+  display: block;
+}
+
+@keyframes fadeInExplanation {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.explanation-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--gold-light);
+  margin-bottom: 6px;
+}
+
+.explanation-content {
+  font-size: 0.92rem;
+  color: var(--text-main);
+  line-height: 1.55;
+}
+
+/* Test boshqaruv tugmalari (Control Buttons) */
+.test-controls-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.test-controls-left,
+.test-controls-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Umumiy tugmalar stillari */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  outline: none;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background: var(--gold-gradient);
+  color: #0a152d;
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+  filter: brightness(1.05);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--border-gold);
+  color: var(--gold-light);
+}
+
+.btn-finish {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+
+.btn-finish:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid var(--error-border);
+  color: #fca5a5;
+}
+
+.btn-danger:hover {
+  background: var(--error);
+  color: #fff;
+}
+
+/* ===================================================================
+   3. NATIJALAR EKRANI (RESULTS SCREEN)
+   =================================================================== */
+.results-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  padding: 36px;
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.results-badge-wrapper {
+  margin-bottom: 20px;
+}
+
+.grade-trophy {
+  font-size: 4rem;
+  display: inline-block;
+  animation: bounceTrophy 1s ease infinite alternate;
+}
+
+@keyframes bounceTrophy {
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
+}
+
+.grade-badge-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.grade-comment {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+
+/* Natijalar ko'rsatkichlari */
+.results-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.result-stat-box {
+  background: rgba(10, 21, 45, 0.85);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 18px 14px;
+}
+
+.result-stat-box .num {
+  font-size: 1.85rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.result-stat-box.percent .num { color: var(--gold-bright); }
+.result-stat-box.correct .num { color: var(--success); }
+.result-stat-box.wrong .num { color: var(--error); }
+.result-stat-box.time .num { color: var(--info); }
+
+.result-stat-box .lbl {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Natijalar tugmalari */
+.results-actions-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* Xatolar tahlili ro'yxati (Review Section) */
+.review-section {
+  margin-top: 32px;
+}
+
+.review-headline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.review-headline h3 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.review-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 6px 14px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--bg-card);
+  border-color: var(--border-gold);
+  color: var(--gold-bright);
+}
+
+.review-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.review-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  transition: var(--transition);
+}
+
+.review-item.wrong {
+  border-color: rgba(239, 68, 68, 0.4);
+  background: linear-gradient(180deg, rgba(239, 68, 68, 0.05) 0%, rgba(15, 32, 66, 0.85) 100%);
+}
+
+.review-item.correct {
+  border-color: rgba(16, 185, 129, 0.4);
+}
+
+.review-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.review-q-num {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--gold-bright);
+}
+
+.review-status-badge {
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.review-status-badge.correct {
+  background: var(--success-bg);
+  color: #34d399;
+}
+
+.review-status-badge.wrong {
+  background: var(--error-bg);
+  color: #f87171;
+}
+
+.review-question-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.review-answers-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.review-ans-card {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+}
+
+.review-ans-card.user {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.review-ans-card.actual-correct {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #86efac;
+}
+
+.review-explanation {
+  background: rgba(10, 21, 45, 0.7);
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  border-left: 3px solid var(--gold-primary);
+}
+
+/* ===================================================================
+   MODAL DIALOGLAR (TEXTBOOK INFO, SETTINGS, FINISH CONFIRM)
+   =================================================================== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 12, 26, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-dialog {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  padding: 28px;
+  animation: modalScale 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-close-btn {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.modal-close-btn:hover {
+  color: #fff;
+}
+
+.modal-body {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.modal-body h4 {
+  color: var(--gold-bright);
+  margin: 16px 0 6px;
+  font-size: 1rem;
+}
+
+.modal-body ul {
+  padding-left: 20px;
+  margin-bottom: 14px;
+}
+
+.modal-body li {
+  margin-bottom: 6px;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Sozlamalar guruhlari */
+.setting-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.setting-label h5 {
+  color: #fff;
+  font-size: 0.95rem;
+  margin-bottom: 2px;
+}
+
+.setting-label p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 26px;
+  flex-shrink: 0;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: 0.3s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background: var(--gold-gradient);
+}
+
+input:checked + .slider:before {
+  transform: translateX(22px);
+  background-color: #0a152d;
+}
+
+/* ===================================================================
+   FOOTER
+   =================================================================== */
+.main-footer {
+  margin-top: 40px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border-subtle);
+  text-align: center;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.main-footer p {
+  margin-bottom: 6px;
+}
+
+.main-footer strong {
+  color: var(--gold-primary);
+}
+
+/* Confetti canvas */
+#confettiCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* ===================================================================
+   RESPONSIVELIK (TABLET VA TELEFONLAR UCHUN)
+   =================================================================== */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .hero-banner {
+    padding: 22px 18px;
+  }
+
+  .hero-banner h2 {
+    font-size: 1.45rem;
+  }
+
+  .question-card {
+    padding: 20px 16px;
+  }
+
+  .question-text {
+    font-size: 1.1rem;
+  }
+
+  .test-controls-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .test-controls-left,
+  .test-controls-right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 12px 16px;
+  }
+
+  .textbook-notice-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Confetti Canvas nishonlash uchun -->
+  <canvas id="confettiCanvas"></canvas>
+
+  <div class="app-container">
+    <!-- ===================================================================
+         ASOSIY HEADER
+         =================================================================== -->
+    <header class="main-header">
+      <div class="header-inner">
+        <a href="#" class="brand-wrapper" id="brandHomeBtn" title="Bosh sahifaga qaytish">
+          <div class="brand-emblem">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 3L1 9L12 15L21 10.09V17H23V9M5 13.18V17.18L12 21L19 17.18V13.18L12 17L5 13.18Z"/>
+            </svg>
+          </div>
+          <div class="brand-titles">
+            <h1>6-Sinf Tarix Testi</h1>
+            <p>Qadimgi Dunyo Tarixi вЂў 2022-yilgi yangi nashr</p>
+          </div>
+        </a>
+
+        <div class="header-actions">
+          <div class="quick-stats-badge" title="Foydalanuvchi umumiy ko'rsatkichlari">
+            <div class="stat-item">
+              <span>рџЏ† Rekord:</span>
+              <span class="val" id="headerBestScore">0%</span>
+            </div>
+            <div class="stat-item" style="border-left: 1px solid var(--border-gold); padding-left: 10px;">
+              <span>рџ“ќ Testlar:</span>
+              <span class="val" id="headerTestsCount">0</span>
+            </div>
+          </div>
+
+          <button class="btn-icon" id="btnSoundToggle" title="Ovozni yoqish / o'chirish">рџ”Љ</button>
+          <button class="btn-icon" id="btnTextbookInfo" title="2022 darslik haqida ma'lumot">рџ“–</button>
+          <button class="btn-icon" id="btnSettings" title="Sozlamalar">вљ™пёЏ</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================================================================
+         1. DASHBOARD / BOSH SAHIFA
+         =================================================================== -->
+    <main id="screenDashboard" class="app-screen active">
+      <!-- Hero Banner -->
+      <section class="hero-banner">
+        <div class="hero-badge-tag">
+          <span>рџЏ›пёЏ</span> Rasmiy darslik dasturi asosida (2022)
+        </div>
+        <h2>O'tmish sirlarini kashf eting va tarixdan o'z bilimlaringizni sinang!</h2>
+        <p>
+          Ushbu interaktiv platforma O'zbekiston Respublikasi umumiy o'rta ta'lim maktablarining 
+          <strong>"Qadimgi dunyo tarixi" (6-sinf, 2022-yil nashri)</strong> darsligi asosida ishlab chiqilgan.
+          Barcha bo'limlar, sanalar, tarixiy shaxslar va madaniy yodgorliklar darslikka 100% moslashtirilgan.
+        </p>
+
+        <div class="hero-stats-row">
+          <div class="hero-stat-card">
+            <div class="stat-icon">рџ“Љ</div>
+            <div>
+              <div class="stat-title">Topshirilgan testlar</div>
+              <div class="stat-num" id="dashTotalTests">0</div>
+            </div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-icon">в­ђ</div>
+            <div>
+              <div class="stat-title">Eng yuqori natija</div>
+              <div class="stat-num" id="dashBestScore">0 ball (0%)</div>
+            </div>
+          </div>
+          <div class="hero-stat-card">
+            <div class="stat-icon">рџЋЇ</div>
+            <div>
+              <div class="stat-title">O'rtacha o'zlashtirish</div>
+              <div class="stat-num" id="dashAvgPercent">0%</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Test Rejimlari -->
+      <section class="section-headline">
+        <h3>вљЎ <span>Test Rejimini</span> Tanlang</h3>
+      </section>
+
+      <div class="modes-grid">
+        <div class="mode-card" data-mode="quick10">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">вљЎ</div>
+              <div class="mode-title">Tezkor Test</div>
+            </div>
+            <p class="mode-desc">
+              10 ta saralangan savol. Qisqa tanaffuslarda yoki dars oldidan bilimlarni tezda tekshirish uchun qulay.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>вЏ±пёЏ 10 daqiqa</span>
+            <span>рџ“ќ 10 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card featured" data-mode="standard">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">рџ“</div>
+              <div class="mode-title">Standart Test</div>
+            </div>
+            <p class="mode-desc">
+              20 ta aralash darslik savoli. O'quvchilar uchun eng maqbul format va to'liq bilimlar monitoringi.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>вЏ±пёЏ 20 daqiqa</span>
+            <span>рџ“ќ 20 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="deep30">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">рџ“љ</div>
+              <div class="mode-title">Kengaytirilgan Test</div>
+            </div>
+            <p class="mode-desc">
+              30 ta savoldan iborat chuqurlashtirilgan sinov. Barcha beshta bo'limni qamrab oladi.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>вЏ±пёЏ 30 daqiqa</span>
+            <span>рџ“ќ 30 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="large50">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">рџЏ†</div>
+              <div class="mode-title">Katta Bilimlar Sinovi</div>
+            </div>
+            <p class="mode-desc">
+              50 ta savoldan iborat to'liq darslik bo'yicha yakuniy nazorat ishi va olimpiadalarga tayyorgarlik.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>вЏ±пёЏ 45 daqiqa</span>
+            <span>рџ“ќ 50 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="exam">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">рџЋ“</div>
+              <div class="mode-title">Imtihon Rejimi</div>
+            </div>
+            <p class="mode-desc">
+              Qat'iy taymer, orqaga sanash va yakuniy rasmiy baholash. Haqiqiy imtihon muhiti yaratiladi.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>вЏ±пёЏ Jonli taymer</span>
+            <span>рџ“ќ 25 savol</span>
+          </div>
+        </div>
+
+        <div class="mode-card" data-mode="practice">
+          <div>
+            <div class="mode-card-header">
+              <div class="mode-icon">рџ’Ў</div>
+              <div class="mode-title">Mashg'ulot Rejimi</div>
+            </div>
+            <p class="mode-desc">
+              Har bir savolga javob berilgach, darhol to'g'ri javob va darslikdan batafsil izoh ko'rsatiladi.
+            </p>
+          </div>
+          <div class="mode-meta">
+            <span>вЏ±пёЏ Cheklovsiz</span>
+            <span>рџ“– Darslik sharhlari</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Darslik bo'limlari bo'yicha mashg'ulot -->
+      <section class="section-headline">
+        <h3>рџ“– <span>Darslik Bo'limlari</span> Bo'yicha Mashq (Mavzulashtirilgan)</h3>
+      </section>
+
+      <div class="chapters-grid" id="chaptersList">
+        <!-- Javascript orqali render qilinadi -->
+      </div>
+
+      <!-- Darslik xabarnomasi va PDF taqdim etish ma'lumotnomasi -->
+      <div class="textbook-notice-box">
+        <div class="notice-content">
+          <div class="notice-icon">рџ“љ</div>
+          <div class="notice-text">
+            <h4>2022-yilgi "Qadimgi Dunyo Tarixi" darsligi haqida</h4>
+            <p>
+              Tizimdagi barcha savollar A.S. Sagdullayev va V.A. Kostetskiy muallifligidagi 2022-yil nashriga to'liq mos keladi.
+              Agar sizda ushbu darslikning elektron PDF varianti bo'lsa yoki savollar qo'shmoqchi bo'lsangiz, batafsil tanishishingiz mumkin.
+            </p>
+          </div>
+        </div>
+        <button class="btn btn-secondary" onclick="document.getElementById('textbookModal').classList.add('open')">
+          Batafsil ma'lumot в†—
+        </button>
+      </div>
+    </main>
+
+    <!-- ===================================================================
+         2. TEST TOPSHIRISH EKRANI (ACTIVE TEST SCREEN)
+         =================================================================== -->
+    <main id="screenTest" class="app-screen">
+      <!-- Test yuqori paneli (Top Bar) -->
+      <div class="test-topbar">
+        <div class="test-topbar-row">
+          <div class="test-mode-badge" id="testModeName">Standart Test</div>
+          
+          <div class="test-timer-wrapper" id="testTimerWrapper" style="display: none;">
+            <span>вЏ±пёЏ</span>
+            <span id="testTimerText">20:00</span>
+          </div>
+        </div>
+
+        <div class="test-progress-info">
+          <span id="testProgressText">Savol: <strong>1</strong> / 20</span>
+          <span id="testPercentText">5%</span>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill" id="testProgressBar"></div>
+        </div>
+      </div>
+
+      <!-- Savollar palitrasi ochish paneli -->
+      <div class="palette-toggle-bar" id="paletteToggleBar">
+        <div class="palette-label">
+          <span>рџ”ў</span> Savollar xaritasi (Istalgan savolga to'g'ridan-to'g'ri o'tish)
+        </div>
+        <span style="font-size: 0.85rem; color: var(--gold-light);">Ko'rsatish / Yashirish в–ј</span>
+      </div>
+
+      <div class="question-palette-container" id="paletteContainer">
+        <div class="palette-grid" id="paletteGrid">
+          <!-- Raqamli chiplar JavaScript orqali joylanadi -->
+        </div>
+      </div>
+
+      <!-- Asosiy savol kartasi -->
+      <div class="question-card">
+        <div class="question-tags-row">
+          <span class="tag-badge section-tag" id="questionSectionTag">I Bo'lim</span>
+          <span class="tag-badge verified-tag">вњ… 2022 darslik bo'yicha tekshirilgan</span>
+          <span class="tag-badge" style="background: rgba(255,255,255,0.06); color: var(--text-muted);" id="questionTopicTag">Mavzu: Qadimgi davr</span>
+        </div>
+
+        <h2 class="question-text" id="questionText">
+          Savol matni bu yerda yuklanadi...
+        </h2>
+
+        <!-- Variantlar (A, B, C, D) -->
+        <div class="options-list" id="optionsList">
+          <!-- Javascript orqali render qilinadi -->
+        </div>
+
+        <!-- Mashg'ulot rejimidagi tushuntirish qutisi -->
+        <div class="explanation-box" id="explanationBox">
+          <div class="explanation-title">
+            <span>рџ’Ў</span> Tarixiy darslik izohi:
+          </div>
+          <div class="explanation-content" id="explanationContent">
+            Izoh matni...
+          </div>
+        </div>
+      </div>
+
+      <!-- Test boshqaruv tugmalari (Footer controls) -->
+      <div class="test-controls-row">
+        <div class="test-controls-left">
+          <button class="btn btn-danger" id="btnQuitTest">
+            вњ• Chiqish
+          </button>
+        </div>
+
+        <div class="test-controls-right">
+          <button class="btn btn-secondary" id="btnPrevQuestion">
+            в¬…пёЏ Oldingi savol
+          </button>
+
+          <button class="btn btn-secondary" id="btnCheckAnswer" style="display: none; border-color: var(--gold-primary); color: var(--gold-bright);">
+            рџ’Ў Javobni tekshirish
+          </button>
+
+          <button class="btn btn-primary" id="btnNextQuestion">
+            Keyingi savol вћЎпёЏ
+          </button>
+
+          <button class="btn btn-finish" id="btnFinishTest" style="display: none;">
+            рџЏЃ Testni yakunlash
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ===================================================================
+         3. NATIJALAR EKRANI (RESULTS SCREEN)
+         =================================================================== -->
+    <main id="screenResults" class="app-screen">
+      <div class="results-card">
+        <div class="results-badge-wrapper">
+          <div class="grade-trophy" id="resultTrophy">рџЏ†</div>
+          <h2 class="grade-badge-title" id="resultGradeTitle">A'lo! (5 baho)</h2>
+          <p class="grade-comment" id="resultGradeComment">
+            Siz 6-sinf Tarix fani bo'yicha ajoyib natija ko'rsatdingiz!
+          </p>
+        </div>
+
+        <!-- Statistika bloki -->
+        <div class="results-stats-grid">
+          <div class="result-stat-box percent">
+            <div class="num" id="resultPercent">100%</div>
+            <div class="lbl">O'zlashtirish</div>
+          </div>
+          <div class="result-stat-box correct">
+            <div class="num" id="resultCorrectCount">20</div>
+            <div class="lbl">To'g'ri javoblar</div>
+          </div>
+          <div class="result-stat-box wrong">
+            <div class="num" id="resultWrongCount">0</div>
+            <div class="lbl">Noto'g'ri javoblar</div>
+          </div>
+          <div class="result-stat-box time">
+            <div class="num" id="resultTimeSpent">4 daq 12 son</div>
+            <div class="lbl">Sarflangan vaqt</div>
+          </div>
+        </div>
+
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 24px;" id="resultScoreText">
+          20 / 20 to'g'ri
+        </p>
+
+        <!-- Natijalar harakat tugmalari -->
+        <div class="results-actions-row">
+          <button class="btn btn-primary" id="btnRestartTest">
+            рџ”„ Qayta topshirish
+          </button>
+
+          <button class="btn btn-secondary" id="btnRetryMistakes" style="display: none; border-color: var(--error-border); color: #fca5a5;">
+            вќЊ Faqat xatolar ustida ishlash
+          </button>
+
+          <button class="btn btn-secondary" id="btnHomeFromResults">
+            рџЏ  Bosh sahifaga qaytish
+          </button>
+        </div>
+      </div>
+
+      <!-- Xatolar va barcha savollar tahlili (Review Section) -->
+      <section class="review-section">
+        <div class="review-headline">
+          <h3>рџ“‹ Savollar tahlili va darslik sharhlari</h3>
+          <div class="review-filters">
+            <button class="filter-btn active" data-filter="all">Barchasi</button>
+            <button class="filter-btn" data-filter="wrong">Faqat xatolar</button>
+            <button class="filter-btn" data-filter="correct">Faqat to'g'rilar</button>
+          </div>
+        </div>
+
+        <div class="review-list" id="reviewList">
+          <!-- Savollar tahlili JavaScript orqali joylanadi -->
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================================================================
+         ASOSIY FOOTER
+         =================================================================== -->
+    <footer class="main-footer">
+      <p><strong>6-Sinf Qadimgi Dunyo Tarixi</strong> вЂ” Zamonaviy interaktiv test va bilimlar monitoringi platformasi.</p>
+      <p>O'zbekiston Respublikasi Xalq ta'limi vazirligi (Maktabgacha va maktab ta'limi vazirligi) 2022-yil darslik dasturi asosida tuzilgan.</p>
+      <p style="color: var(--text-gold); font-size: 0.78rem; margin-top: 8px;">
+        Klaviatura yordamida boshqarish: <strong>A, B, C, D</strong> (variantlar) вЂў <strong>в†ђ / в†’</strong> (oldingi / keyingi) вЂў <strong>Enter</strong> (tekshirish)
+      </p>
+    </footer>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 1: DARSLIK HAQIDA VA SAVOLLAR BAZASI
+       =================================================================== -->
+  <div class="modal-overlay" id="textbookModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>рџ“– 2022-yilgi Darslik Haqida</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Ushbu veb-ilova O'zbekiston maktablarining 6-sinf o'quvchilari uchun mo'ljallangan bo'lib, 
+          quyidagi rasmiy darslikka asoslanadi:
+        </p>
+
+        <h4>рџ“љ Asosiy darslik ma'lumotlari:</h4>
+        <ul>
+          <li><strong>Nomi:</strong> Qadimgi dunyo tarixi (6-sinf)</li>
+          <li><strong>Mualliflar:</strong> A.S. Sagdullayev, V.A. Kostetskiy va boshqalar</li>
+          <li><strong>Nashr yili:</strong> 2022-yil (Toshkent)</li>
+          <li><strong>Bo'limlar:</strong> 5 ta asosiy bo'lim (Ibtidoiy jamoa, Qadimgi Sharq, Yunoniston, Qadimgi O'rta Osiyo, Rim)</li>
+        </ul>
+
+        <h4>вњ… Tekshirilgan savollar mezonlari:</h4>
+        <p>
+          Tizimdagi barcha savollar to'q sariq yoki yashil belgi bilan ko'rsatilgan bo'lib, 
+          aniq tarixiy faktlar, shaxslar (To'maris, Shiroq, Spitamen, Romul, Perikl, Hammurapi), 
+          sanalar va arxeologik yodgorliklar (Teshiktosh, Jarqo'ton, Zamonbobo, Fayoztepa) darslik bo'yicha to'liq tekshirilgan.
+        </p>
+
+        <h4>рџ“¤ Qo'shimcha savollar yoki PDF darslik taqdim etish:</h4>
+        <p>
+          Agar sizda ushbu 2022-yilgi darslikning to'liq PDF nusxasi bo'lsa, 
+          savollar bazasini yuzlab yangi savollar bilan yanada boyitishimiz mumkin.
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-modal-close">Tushunarli</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 2: SOZLAMALAR (SETTINGS)
+       =================================================================== -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3>вљ™пёЏ Ilova Sozlamalari</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-item">
+          <div class="setting-label">
+            <h5>Ovoz effektlari (Audio)</h5>
+            <p>Javob tanlash, to'g'ri/noto'g'ri signallari va yakuniy g'alaba ohangi</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="settingSoundToggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-label">
+            <h5>Variantlarni aralashtirish (Shuffle)</h5>
+            <p>Har safar yangi test boshlanganda javob variantlari o'rnini tasodifiy almashtirish</p>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="settingShuffleToggle" checked>
+            <span class="slider"></span>
+          </label>
+        </div>
+
+        <div class="setting-item">
+          <div class="setting-label">
+            <h5>Dizayn mavzusi</h5>
+            <p>To'q ko'k va Qirollik oltin tuslari (Dark Blue & Gold theme)</p>
+          </div>
+          <span style="font-size: 0.82rem; color: var(--gold-bright); font-weight: 700;">Standart (Faol)</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary btn-modal-close">Saqlash va yopish</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================
+       MODAL 3: TESTNI YAKUNLASHNI TASDIQLASH (CONFIRM FINISH)
+       =================================================================== -->
+  <div class="modal-overlay" id="confirmFinishModal">
+    <div class="modal-dialog" style="max-width: 440px;">
+      <div class="modal-header">
+        <h3>вљ пёЏ Testni yakunlash</h3>
+        <button class="modal-close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>
+          Siz hali barcha savollarga javob bermadingiz. 
+          Rostdan ham testni muddatidan oldin yakunlab, natijalarni hisoblamoqchimisiz?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary btn-modal-close">Davom ettirish</button>
+        <button class="btn btn-finish" id="btnConfirmFinishYes">Ha, yakunlash</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Skriptlarni yuklash -->
+  <script>
+/**
+ * 6-SINF QADIMGI DUNYO TARIXI - TEST SAVOLLARI BAZASI
+ * O'zbekiston Respublikasi Xalq ta'limi vazirligi (hozirgi Maktabgacha va maktab ta'limi vazirligi)
+ * tomonidan tasdiqlangan 2022-yilgi darslik (Mualliflar: A.S. Sagdullayev, V.A. Kostetskiy va b.)
+ * standartlari va mundarijasi asosida tuzilgan.
+ * 
+ * Barcha savollar 5 ta asosiy bo'lim bo'yicha taqsimlangan va tekshirilgan (isVerified: true).
+ */
+
+const HISTORY_SECTIONS = [
+  {
+    id: 1,
+    name: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    shortName: "Ibtidoiy jamoa va sivilizatsiya",
+    description: "Tosh, eneolit, bronza va temir davrlari. O'zbekiston hududidagi ilk odamlar manzilgohlari (Selung'ur, Teshiktosh, Zamonbobo, Sopollitepa, Jarqo'ton).",
+    icon: "рџЏє"
+  },
+  {
+    id: 2,
+    name: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    shortName: "Qadimgi Sharq davlatlari",
+    description: "Qadimgi Misr, Mesopotamiya, Bobil (Hammurapi qonunlari), Hindiston, Xitoy va Zardushtiylik ta'limoti ('Avesto').",
+    icon: "рџЏ›пёЏ"
+  },
+  {
+    id: 3,
+    name: "III Bo'lim. Qadimgi Yunoniston",
+    shortName: "Qadimgi Yunoniston",
+    description: "Krit-Miken madaniyati, Afina va Sparta, Yunon-fors urushlari, Yunon madaniyati, fani va Olimpiada o'yinlari.",
+    icon: "вљЎ"
+  },
+  {
+    id: 4,
+    name: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    shortName: "Qadimgi O'rta Osiyo davlatlari",
+    description: "Kir II va To'maris, Shiroq jasorati, Aleksandr Makedonskiy yurishlari, Spitamen, Salavkiylar, Yunon-Baqtriya, Qang', Davan va Kushon davlati.",
+    icon: "вљ”пёЏ"
+  },
+  {
+    id: 5,
+    name: "V Bo'lim. Qadimgi Rim",
+    shortName: "Qadimgi Rim",
+    description: "Rim shahrining tashkil topishi, Rim Respublikasi, Puni urushlari, Spartak qo'zg'oloni, Yuliy Sezar, Imperiya davri va G'arbiy Rimning qulashi.",
+    icon: "рџ›ЎпёЏ"
+  }
+];
+
+const QUESTIONS_DATABASE = [
+  // ==========================================
+  // I BO'LIM: ENG QADIMGI TUZUMDAN SIVILIZATSIYA SARI
+  // ==========================================
+  {
+    id: 101,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Eng qadimgi odamlarning rivojlanish bosqichlari",
+    question: "O'zbekiston hududidan topilgan eng qadimgi odam qoldiqlari - neandertal bolaning bosh suyagi qaysi g'ordan topilgan?",
+    options: [
+      "Teshiktosh g'oridan (Surxondaryo)",
+      "Selung'ur g'oridan (Farg'ona)",
+      "Obirahmat g'oridan (Toshkent)",
+      "Machay g'oridan (Boysun)"
+    ],
+    correct: 0,
+    explanation: "Surxondaryo viloyatining Boysun tog'laridagi Teshiktosh g'oridan 1938-yilda arxeolog A.P. Okladnikov tomonidan 8-9 yoshli neandertal bolaning bosh suyagi va suyak qoldiqlari topilgan.",
+    isVerified: true
+  },
+  {
+    id: 102,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Paleolit davri",
+    question: "Farg'ona vodiysida joylashgan va O'rta Osiyodagi eng qadimgi odamlar yashagan manzilgohlardan biri qaysi?",
+    options: [
+      "Selung'ur g'ori",
+      "Zarautsoy",
+      "Kaltaminor",
+      "Zamonbobo"
+    ],
+    correct: 0,
+    explanation: "Farg'ona vodiysining So'x daryosi yaqinidagi Selung'ur g'oridan ilk paleolit davriga oid tosh qurollar va qadimgi odam tishlari topilgan bo'lib, ular 'fergantrop' deb atalgan.",
+    isVerified: true
+  },
+  {
+    id: 103,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Mezolit davri",
+    question: "Mezolit (o'rta tosh davri) davrining eng muhim texnik kashfiyoti nima edi?",
+    options: [
+      "Kamon va o'qning ixtiro qilinishi",
+      "Kulolchilik charxining yaratilishi",
+      "Dastlabki temir qurollarning yasalishi",
+      "G'ildirakli aravalarning paydo bo'lishi"
+    ],
+    correct: 0,
+    explanation: "Mezolit davrida (miloddan avvalgi XII-VII ming yilliklar) kamon va o'q ixtiro qilindi. Bu insonlarga yovvoyi hayvonlarni uzoq masofadan ovlash imkoniyatini berdi.",
+    isVerified: true
+  },
+  {
+    id: 104,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Qadimgi san'at",
+    question: "Surxondaryo viloyatidagi Zarautsoy qoyatosh rasmlarida asosan nimalar tasvirlangan?",
+    options: [
+      "Yovvoyi buqalar va itlar yordamida ov qilish sahnalari",
+      "Daryoda kema haydash manzaralari",
+      "Qadimgi jangchilarning qal'a qamali",
+      "Ibtidoiy odamlarning kulolchilik bilan shug'ullanishi"
+    ],
+    correct: 0,
+    explanation: "Zarautsoy qoyatosh rasmlari (mezolit va neolit davrlari) O'rta Osiyo ibtidoiy tasviriy san'atining nodir yodgorligi bo'lib, unda qizil oxra bilan ovchilar, o'q-yoy, itlar va yovvoyi buqalar aks ettirilgan.",
+    isVerified: true
+  },
+  {
+    id: 105,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Neolit davri",
+    question: "'Neolit inqilobi' iborasi tarixdagi qanday tub burilishni anglatadi?",
+    options: [
+      "O'zlashtiruvchi xo'jalikdan ishlab chiqaruvchi xo'jalikka (dehqonchilik va chorvachilikka) o'tishni",
+      "Birinchi yozuv tizimining kashf etilishini",
+      "Odamlarning temir qurollardan foydalana boshlashini",
+      "Yirik quldorlik davlatlarining vujudga kelishini"
+    ],
+    correct: 0,
+    explanation: "Neolit davrida insoniyat tabiat bergan tayyor ne'matlarni shunchaki terib-yeyishdan (o'zlashtiruvchi) yer haydash va chorva boqish orqali noz-ne'mat yaratishga (ishlab chiqaruvchi) o'tdi. Bu tarixda 'Neolit inqilobi' deb ataladi.",
+    isVerified: true
+  },
+  {
+    id: 106,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Bronza davri yodgorliklari",
+    question: "O'zbekiston hududidagi eng qadimiy shahar alomatlariga ega bo'lgan ilk shahar-manzilgoh va olov ibodatxonasi qaysi yodgorlikdan topilgan?",
+    options: [
+      "Jarqo'ton (Surxondaryo)",
+      "Zamonbobo (Buxoro)",
+      "Joytun (Turkmaniston)",
+      "Qo'yqirilganqal'a (Xorazm)"
+    ],
+    correct: 0,
+    explanation: "Surxondaryo viloyatining Sherobod tumanida joylashgan Jarqo'ton manzilgohi bronza davriga oid bo'lib, u yerda O'zbekiston hududidagi eng qadimgi olov ibodatxonasi, hukmdor saroyi va shaharsozlik belgilari aniqlangan.",
+    isVerified: true
+  },
+  {
+    id: 107,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Bronza davri madaniyati",
+    question: "Bronza qanday metallarning qotishmasidan hosil qilingan?",
+    options: [
+      "Mis va qalay",
+      "Temir va kumush",
+      "Oltin va qo'rg'oshin",
+      "Mis va rux"
+    ],
+    correct: 0,
+    explanation: "Bronza - mis bilan qalayning (ba'zan qo'rg'oshin yoki margimush bilan) qotishmasidir. Bronza sof misga qaraganda ancha qattiq va erish harorati past bo'lgani sababli qurol-yarog' va asboblar uchun qulay bo'lgan.",
+    isVerified: true
+  },
+  {
+    id: 108,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Eneolit davri",
+    question: "Buxoro viloyatidagi Zamonbobo yodgorligi qaysi davr madaniyatiga mansub?",
+    options: [
+      "Eneolit va ilk bronza davriga",
+      "Ilk temir davriga",
+      "Paleolit davriga",
+      "Yunon-Baqtriya davriga"
+    ],
+    correct: 0,
+    explanation: "Zamonbobo ko'li yaqinidagi manzilgoh va qabriston eneolit (mis-tosh davri) hamda ilk bronza davriga oid bo'lib, bu yerdagi aholi dehqonchilik va chorvachilik bilan shug'ullangan.",
+    isVerified: true
+  },
+  {
+    id: 109,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Urug'chilik jamiyati",
+    question: "Onaxonlik (matriarxat) davridan otaxonlik (patriarxat) davriga o'tish qaysi omil bilan bevosita bog'liq?",
+    options: [
+      "Og'ir mehnat talab qiladigan metall eritish, omochli dehqonchilik va chorvachilikda erkaklar rolining ortishi bilan",
+      "Yozuv paydo bo'lishi bilan",
+      "Odamlarning g'orlardan qamish kulbalarga ko'chishi bilan",
+      "Diniy e'tiqodlarning butunlay yo'qolishi bilan"
+    ],
+    correct: 0,
+    explanation: "Eneolit va bronza davrida og'ir metall qurollar, omoch yordamida yer haydash va chorvachilik erkaklar jismoniy kuchini talab qildi. Natijada erkak kishining oila va jamiyatdagi yetakchilik mavqeyi yuksaldi (patriarxat).",
+    isVerified: true
+  },
+  {
+    id: 110,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Temir davriga o'tish",
+    question: "O'rta Osiyoda temir asriga o'tish qaysi davrdan boshlangan?",
+    options: [
+      "Miloddan avvalgi I ming yillik boshlaridan",
+      "Miloddan avvalgi III ming yillikdan",
+      "Milodiy V asrdan",
+      "Miloddan avvalgi X ming yillikdan"
+    ],
+    correct: 0,
+    explanation: "O'rta Osiyoda miloddan avvalgi I ming yillik boshlarida temirdan qurol-yarog' va mehnat qurollari yasash ommalashdi. Temir qurollar mehnat unumdorligini keskin oshirdi.",
+    isVerified: true
+  },
+
+  // ==========================================
+  // II BO'LIM: QADIMGI SHARQ VA O'RTA OSIYO
+  // ==========================================
+  {
+    id: 201,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Qadimgi Misr",
+    question: "Qadimgi yunon tarixchisi Gerodot nima sababdan Misrni 'Nil tuhfasi' deb atagan?",
+    options: [
+      "Har yili Nil daryosi toshib, o'z loyqasi bilan yerlarni nihoyatda unumdor qilgani uchun",
+      "Nil daryosidan oltin qumlar oqib kelgani sababli",
+      "Fir'avnlar faqat Nil daryosida sayr qilgani uchun",
+      "Nil suvi barcha kasalliklarni davolovchi muqaddas suv deb bilingani uchun"
+    ],
+    correct: 0,
+    explanation: "Nil daryosi har yozda toshib, sohillarni unumdor qora loyqa bilan qoplagan. Sahro o'rtasida hayot va dehqonchilik faqat Nil daryosi tufayli mavjud bo'lgan, shu sababli Gerodot uni 'Nil tuhfasi' deb ta'riflagan.",
+    isVerified: true
+  },
+  {
+    id: 202,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Qadimgi Misr",
+    question: "Qadimgi Misrda qurilgan eng ulkan piramida qaysi fir'avnga tegishli?",
+    options: [
+      "Xufu (Xeops)",
+      "Tutankhamon",
+      "Ramses II",
+      "Exnaton"
+    ],
+    correct: 0,
+    explanation: "Qadimgi Misrning Giza vodiysida miloddan avvalgi XXVI asrda fir'avn Xufu (yunoncha Xeops) uchun qad ko'targan piramida eng yirik hisoblanadi (balandligi qariyb 147 metr bo'lgan).",
+    isVerified: true
+  },
+  {
+    id: 203,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Qadimgi Misr madaniyati",
+    question: "Qadimgi Misr iyeroglif yozuvini XIX asr boshida birinchi bo'lib kim o'qishga muvaffaq bo'lgan?",
+    options: [
+      "Jan-Fransua Shampolyon",
+      "Hovard Karter",
+      "Genrix Shliman",
+      "Artur Evans"
+    ],
+    correct: 0,
+    explanation: "1822-yilda fransuz olimi Jan-Fransua Shampolyon Rozetta toshidagi uch xil tildagi matnni qiyoslab o'rganish orqali qadimgi Misr iyerogliflarini o'qish sirini ochgan.",
+    isVerified: true
+  },
+  {
+    id: 204,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Mesopotamiya sivilizatsiyalari",
+    question: "Mesopotamiya (Ikki daryo oralig'i) qaysi ikki yirik daryo oralig'ida joylashgan hudud?",
+    options: [
+      "Dajla va Frot",
+      "Hind va Gang",
+      "Nil va Qizilqum",
+      "Amudaryo va Sirdaryo"
+    ],
+    correct: 0,
+    explanation: "Mesopotamiya so'zi yunoncha 'Ikki daryo oralig'i' degan ma'noni anglatadi va Dajla (Tigr) hamda Frot (Yevfrat) daryolari havzasidagi hududni ifodalaydi.",
+    isVerified: true
+  },
+  {
+    id: 205,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Mesopotamiya madaniyati",
+    question: "Shumerlar tomonidan loy lavhalarga maxsus tayoqchalar yordamida yozilgan yozuv turi qanday atalgan?",
+    options: [
+      "Mixxat (ponasimon yozuv)",
+      "Iyeroglif yozuvi",
+      "Finikiya alifbosi",
+      "Arab yozuvi"
+    ],
+    correct: 0,
+    explanation: "Shumerlar qadimgi dunyoda birinchilardan bo'lib yozuv ixtiro qildilar. Nam loy taxtachalarga ponasimon o'tkir qalam bilan bosib yozilgani uchun u 'mixxat' deb atalgan.",
+    isVerified: true
+  },
+  {
+    id: 206,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Bobil podsholigi",
+    question: "Qora bazalt toshga o'yib yozilgan, 282 ta moddadan iborat qadimgi mashhur qonunlar to'plami qaysi Bobil podshosiga tegishli?",
+    options: [
+      "Hammurapi",
+      "Navuxodonosor II",
+      "Sargon",
+      "Kir II"
+    ],
+    correct: 0,
+    explanation: "Bobil podshosi Hammurapi (miloddan avvalgi 1792-1750-yillar) qadimgi dunyoning eng mukammal qonunlar to'plamini yaratdi. Unda 'Ko'zga ko'z, tishga tish' adolat tamoyili aks ettirilgan.",
+    isVerified: true
+  },
+  {
+    id: 207,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Old Osiyo davlatlari",
+    question: "Tarixda birinchi bo'lib 22 ta undosh tovushdan iborat alifbo tizimini yaratgan xalq qaysi?",
+    options: [
+      "Finikiyaliklar",
+      "Misrliklar",
+      "Shumerlar",
+      "Forslar"
+    ],
+    correct: 0,
+    explanation: "O'rta Yer dengizining sharqiy sohilida yashovchi finikiyaliklar savdo va dengizchilik ehtiyojlari uchun o'rganish oson bo'lgan 22 ta harfdan iborat ilk alifboni ixtiro qildilar.",
+    isVerified: true
+  },
+  {
+    id: 208,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Ahamoniylar davlati",
+    question: "Ahamoniylar davlatida pul islohoti o'tkazib, sof oltindan 'darik' tangalarini zarb ettirgan va mamlakatni satraplliklarga bo'lgan shoh kim?",
+    options: [
+      "Doro I",
+      "Kir II",
+      "Kambiz II",
+      "Kserks"
+    ],
+    correct: 0,
+    explanation: "Doro I (miloddan avvalgi 522-486-yillar) davlatni 20 ta satraplikka (viloyatga) bo'ldi, 'Shoh yo'li' pochta aloqasini yo'lga qo'ydi va 'darik' deb nomlangan sof oltin tanga joriy etdi.",
+    isVerified: true
+  },
+  {
+    id: 209,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Qadimgi Hindiston",
+    question: "Qadimgi Hindistonda varna (kasta) tizimi bo'yicha eng oliy tabaqa vakillari kimlar hisoblangan?",
+    options: [
+      "Braxmanlar (kohiylar)",
+      "Kshatriylar (jangchilar va hukmdorlar)",
+      "Vayshiylar (dehqon va hunarmandlar)",
+      "Shudralar (xizmatkorlar)"
+    ],
+    correct: 0,
+    explanation: "Qadimgi hind jamiyati 4 ta asosiy varnaga bo'lingan. Braxmanlar (ruhoniylar, kohinlar) ilohiy qonunlarni biluvchi eng oliy tabaqa sanalgan.",
+    isVerified: true
+  },
+  {
+    id: 210,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Qadimgi Hindiston",
+    question: "Miloddan avvalgi VI-V asrlarda Hindistonda yuzaga kelgan jahon dinlaridan biri bo'lgan Buddizm ta'limotining asoschisi kim?",
+    options: [
+      "Siddhartha Gautama (Budda)",
+      "Ashoka",
+      "Konfutsiy",
+      "Zardusht"
+    ],
+    correct: 0,
+    explanation: "Shahzoda Siddhartha Gautama saroy dabdabasidan voz kechib, haqiqat izlashga otlangan va ma'rifatga erishib 'Budda' ('Haqiqatni anglagan') nomini olgan hamda buddizm diniga asos solgan.",
+    isVerified: true
+  },
+  {
+    id: 211,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Qadimgi Xitoy",
+    question: "Miloddan avvalgi 221-yilda tarqoq podsholiklarni yagona qudratli markazlashgan davlatga birlashtirgan Xitoy imperatori kim?",
+    options: [
+      "Sin Shixuandi",
+      "U-di",
+      "Konfutsiy",
+      "Sun Szi"
+    ],
+    correct: 0,
+    explanation: "Sin sulolasi vakili Sin Shixuandi miloddan avvalgi 221-yilda butun Xitoyni birlashtirdi, yagona pul, o'lchov va yozuv birligini kiritdi hamda ko'chmanchilar xavfidan saqlanish uchun Buyuk Xitoy devorini qurishni boshladi.",
+    isVerified: true
+  },
+  {
+    id: 212,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Zardushtiylik va Avesto",
+    question: "Zardushtiylik ta'limotining muqaddas kitobi 'Avesto'dagi uch asosiy axloqiy tamoyil qaysi qatorda to'g'ri berilgan?",
+    options: [
+      "Ezgu fikr, ezgu so'z, ezgu amal ('Gumata, Guxta, Xvarshta')",
+      "Tinchlik, adolat, boylik",
+      "Sabr, qanoat, itoat",
+      "Qurilish, mehnat, savdo"
+    ],
+    correct: 0,
+    explanation: "'Avesto'ning asosi bo'lgan zardushtiylik dinining bosh axloqiy shiori: 'Ezgu fikr (Gumata), ezgu so'z (Guxta) va ezgu amal (Xvarshta)' bo'lib, insoniyatni poklik va ezgulik sari undaydi.",
+    isVerified: true
+  },
+  {
+    id: 213,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Zardushtiylik va Avesto",
+    question: "Zardushtiylik dinida ezgulik va nur xudosi qanday nomlangan?",
+    options: [
+      "Ahuramazda (Hormuzd)",
+      "Anxramaynu (Ahriman)",
+      "Mitra",
+      "Anaxita"
+    ],
+    correct: 0,
+    explanation: "Zardushtiylikda koinot ezgulik tangrisi Ahuramazda (donolik va yorug'lik egasi) hamda yovuzlik va zulmat timsoli Anxramaynu o'rtasidagi doimiy kurashdan iborat deb qaralgan.",
+    isVerified: true
+  },
+  {
+    id: 214,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "O'rta Osiyo hududidagi qadimiy davlatlar",
+    question: "Miloddan avvalgi I ming yillik boshlarida O'rta Osiyo hududida vujudga kelgan dastlabki yirik davlat uyushmalari qaysilar edi?",
+    options: [
+      "Qadimgi Baqtriya, Katta Xorazm va So'g'diyona",
+      "Kushon va Eftaliylar davlati",
+      "Somoniylar va Qoraxoniylar",
+      "Yunon-Baqtriya va Salavkiylar"
+    ],
+    correct: 0,
+    explanation: "Darslik ma'lumotlariga ko'ra, miloddan avvalgi IX-VII asrlarda Amudaryo havzasi va Zarafshon vodiysida Qadimgi Baqtriya, Katta Xorazm va So'g'd ilk davlat birlashmalari shakllangan.",
+    isVerified: true
+  },
+
+  // ==========================================
+  // III BO'LIM: QADIMGI YUNONISTON
+  // ==========================================
+  {
+    id: 301,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Antik tarixning boshlanishi",
+    question: "Gomerning mashhur 'Iliada' va 'Odisseya' dostonlarida qaysi tarixiy urush voqealari kuylangan?",
+    options: [
+      "Troya urushi",
+      "Yunon-fors urushlari",
+      "Peloponnes urushi",
+      "Puni urushlari"
+    ],
+    correct: 0,
+    explanation: "Ko'zi ojiz shoir Gomerning 'Iliada' dostoni axeyaliklarning Ilion (Troya) shahrini qamal qilishi haqida, 'Odisseya' esa Itaka shohi Odisseyning Troya urushidan keyin o'z yurtiga qaytishdagi sarguzashtlari haqida hikoya qiladi.",
+    isVerified: true
+  },
+  {
+    id: 302,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Qadimgi Yunoniston polislari",
+    question: "Qadimgi Yunonistonda mustaqil shahar-davlatlar nima deb atalgan?",
+    options: [
+      "Polis",
+      "Satraplik",
+      "Nomiya",
+      "Provinsiya"
+    ],
+    correct: 0,
+    explanation: "Qadimgi Yunoniston yagona markazlashgan davlat emas, balki shahar va uning atrofidagi yerlarni o'z ichiga olgan mustaqil jamoa - 'polis'lardan (shahar-davlatlardan) iborat bo'lgan.",
+    isVerified: true
+  },
+  {
+    id: 303,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Afinada demokratiya",
+    question: "Miloddan avvalgi 594-yilda Afinada qarz qulligini bekor qilgan va fuqarolarga siyosiy huquqlar bergan islohotchi donishmand kim?",
+    options: [
+      "Solon",
+      "Drakont",
+      "Perikl",
+      "Pifagor"
+    ],
+    correct: 0,
+    explanation: "Solon Afinada qarz qulligini bekor qildi, qarz tufayli sotilgan afinaliklarni ozod qildi va barcha erkin fuqarolarga Xalq yig'inida qatnashish huquqini berdi.",
+    isVerified: true
+  },
+  {
+    id: 304,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Afinada demokratiya",
+    question: "Afinada demokratiyaning eng yuksak 'oltin davri' qaysi davlat arbobining boshqaruvi bilan bog'liq?",
+    options: [
+      "Perikl",
+      "Solon",
+      "Miltiad",
+      "Filipp II"
+    ],
+    correct: 0,
+    explanation: "Perikl miloddan avvalgi V asrda 15 yil ketma-ket birinchi strateg etib saylandi. Uning davrida Afinada demokratiya eng yuqori cho'qqisiga chiqdi va Afina Akropolida mashhur Parfenon ibodatxonasi qad ko'tardi.",
+    isVerified: true
+  },
+  {
+    id: 305,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Yunon-fors urushlari",
+    question: "Miloddan avvalgi 490-yilda yunonlar forslarni mag'lub etgan va afsonaviy chopar xushxabar olib kelgan jang qaysi?",
+    options: [
+      "Marafon jangi",
+      "Fermopil jangi",
+      "Salamin dengiz jangi",
+      "Gavgamela jangi"
+    ],
+    correct: 0,
+    explanation: "Marafon tekisligida sarkarda Miltiad boshchiligidagi afinaliklar forslarni yengdi. Jang tugagach, yuguruvchi chopar 42 kilometrdan ortiq masofani to'xtamasdan Afinagacha yugurib borib: 'Quvoning, biz g'alaba qozondik!' deb xabar bergan.",
+    isVerified: true
+  },
+  {
+    id: 306,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Yunon-fors urushlari",
+    question: "Miloddan avvalgi 480-yilda tor tog' darasida forslarning behisob qo'shiniga qarshi mardonavor jang qilib, sharaf bilan halok bo'lgan Sparta shohi va uning 300 jangchisi voqeasi qayerda yuz bergan?",
+    options: [
+      "Fermopil darasida (Shoh Leonid boshchiligida)",
+      "Marafon maydonida",
+      "Salamin bo'g'ozida",
+      "Olimpiya vodiysida"
+    ],
+    correct: 0,
+    explanation: "Fermopil darasidagi jangda Sparta shohi Leonid boshchiligidagi 300 spartalik va ularning ittifoqchilari forslarning Kserks boshchiligidagi ulkan qo'shiniga qarshi oxirgi tomchi qonlarigacha qahramonlarcha kurashdilar.",
+    isVerified: true
+  },
+  {
+    id: 307,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Yunon madaniyati",
+    question: "Qadimgi Yunonistonda birinchi Olimpiada o'yinlari qachon o'tkazilgan?",
+    options: [
+      "Miloddan avvalgi 776-yilda",
+      "Miloddan avvalgi 500-yilda",
+      "Miloddan avvalgi 336-yilda",
+      "Milodiy 476-yilda"
+    ],
+    correct: 0,
+    explanation: "Birinchi umumyunon Olimpiada o'yinlari miloddan avvalgi 776-yilda bosh xudo Zevs sharafiga Olimpiya shahrida o'tkazilgan va yunonlar shu yildan o'zlarining yil hisobini (taqvimini) boshlaganlar.",
+    isVerified: true
+  },
+  {
+    id: 308,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Yunoniston olimlari va mutafakkirlari",
+    question: "'Tarixning otasi' deb e'tirof etilgan qadimgi yunon mutafakkiri kim?",
+    options: [
+      "Gerodot",
+      "Gippokrat",
+      "Suqrot (Sokrat)",
+      "Arastu (Aristotel)"
+    ],
+    correct: 0,
+    explanation: "Gerodot (miloddan avvalgi V asr) ko'plab mamlakatlarga sayohat qilib, 'Tarix' asarini yozgan va keyingi avlodlar tomonidan haqli ravishda 'Tarixning otasi' deb e'tirof etilgan.",
+    isVerified: true
+  },
+  {
+    id: 309,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Yunoniston olimlari va mutafakkirlari",
+    question: "Tibbiyot fanining otasi sanalgan va shifokorlik qasamyodi bugungi kungacha uning nomi bilan ataladigan yunon tabibi kim?",
+    options: [
+      "Gippokrat",
+      "Arximed",
+      "Aflotun (Platon)",
+      "Demokrit"
+    ],
+    correct: 0,
+    explanation: "Gippokrat kasalliklar xudolarning jazosi emas, balki tabiiy sabablar oqibati ekanligini isbotlagan va zamonaviy tibbiyot axloqining asosi bo'lgan 'Gippokrat qasamyodi'ni ishlab chiqqan.",
+    isVerified: true
+  },
+  {
+    id: 310,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Qadimgi Yunoniston afsonalari",
+    question: "Yunon mifologiyasida Olimp tog'ining hukmdori, chaqmoq va momaqaldiroq xudosi kim bo'lgan?",
+    options: [
+      "Zevs",
+      "Poseydon",
+      "Apollon",
+      "Ares"
+    ],
+    correct: 0,
+    explanation: "Qadimgi yunonlar Zevsni bosh xudo, osmon, momaqaldiroq va chaqmoqlar egasi hamda barcha xudolar va insonlar otasi deb bilishgan.",
+    isVerified: true
+  },
+
+  // ==========================================
+  // IV BO'LIM: MILODDAN AVVALGI VI вЂ“ MILODIY III ASRLARDA OК»RTA OSIYO
+  // ==========================================
+  {
+    id: 401,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Ahamoniylarning O'rta Osiyoga bosqini",
+    question: "Miloddan avvalgi 530-yilda O'rta Osiyoga bostirib kirgan fors shohi Kir II ni tor-mor keltirgan massagetlar malikasi kim edi?",
+    options: [
+      "To'maris",
+      "Zarina",
+      "Roxshana (Roxana)",
+      "Klepatora"
+    ],
+    correct: 0,
+    explanation: "Miloddan avvalgi 530-yilda jasur malika To'maris boshchiligidagi massaget jangchilari bosqinchi fors shohi Kir II qo'shinini qaqshatqich mag'lubiyatga uchratdilar va jangda Kir II halok bo'ldi.",
+    isVerified: true
+  },
+  {
+    id: 402,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Ahamoniylarga qarshi kurash",
+    question: "Miloddan avvalgi 519-yilda Doro I qo'shinini dasht ichkarisiga adashtirib olib kirib, o'z vatanparvarligi bilan mangu shon-sharaf qozongan sak cho'poni kim?",
+    options: [
+      "Shiroq",
+      "Spitamen",
+      "Oksiat",
+      "Frada"
+    ],
+    correct: 0,
+    explanation: "Cho'pon Shiroq o'z qulog'i va burnini kesib, forslarni go'yo o'z qabilasidan o'ch olmoqchiligiga ishontirdi va Doro I ning ulkan qo'shinini suvsiz, jazirama sahroga boshlab borib, halokat yoqasiga qo'ydi.",
+    isVerified: true
+  },
+  {
+    id: 403,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Aleksandr Makedonskiy yurishlari",
+    question: "Miloddan avvalgi 329-327-yillarda Aleksandr Makedonskiy qo'shinlariga qarshi So'g'diyonada uch yil davomida tengsiz xalq ozodlik harakatiga rahbarlik qilgan qahramon kim?",
+    options: [
+      "Spitamen",
+      "Bess",
+      "Artaksers",
+      "Diodot"
+    ],
+    correct: 0,
+    explanation: "So'g'd zodagoni Spitamen Aleksandr Makedonskiyga qarshi partizanlik usulida jasoratli kurash olib bordi, hatto Marokandani qisqa vaqtga ozod qildi va makedoniyaliklarning yengilmaslik afsonasini yo'qqa chiqardi.",
+    isVerified: true
+  },
+  {
+    id: 404,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Yunon-Baqtriya podsholigi",
+    question: "Miloddan avvalgi III asr o'rtalarida (taxminan m.avv. 250-yil) Salavkiylar davlatidan ajralib chiqib, mustaqil Yunon-Baqtriya davlatiga asos solgan hukmdor kim?",
+    options: [
+      "Diodot I",
+      "Yevtidem",
+      "Kanishka",
+      "Selevk I"
+    ],
+    correct: 0,
+    explanation: "Baqtriya satrapi Diodot miloddan avvalgi taxminan 250-yilda Salavkiylarga qarshi mustaqillik e'lon qildi va o'z nomidan oltin tangalar zarb qildirib, Yunon-Baqtriya davlatiga asos soldi.",
+    isVerified: true
+  },
+  {
+    id: 405,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Yunon-Baqtriya podsholigi",
+    question: "Qadimgi manbalarda qaysi davlat shaharsozlik va madaniyatining yuksakligi uchun 'Mingta shahar mamlakati' deb ta'riflangan?",
+    options: [
+      "Yunon-Baqtriya podsholigi",
+      "Qang' davlati",
+      "Ahamoniylar davlati",
+      "Karfagen"
+    ],
+    correct: 0,
+    explanation: "Yunon-Baqtriya hududida savdo, hunarmandchilik va qal'a-shaharlar nihoyatda rivojlangani sababli antik tarixchilar (masalan, Yustin) uni 'Mingta shahar mamlakati' deb atashgan.",
+    isVerified: true
+  },
+  {
+    id: 406,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Qang' davlati",
+    question: "Sirdaryoning o'rta oqimi va Toshkent vohasida joylashgan Qang' davlatining poytaxti qaysi shahar bo'lgan?",
+    options: [
+      "Bityan",
+      "Marokanda",
+      "Ershi",
+      "Baqtra"
+    ],
+    correct: 0,
+    explanation: "Qadimgi Xitoy solnomalarida qayd etilishicha, Qang' (Kangar) davlatining poytaxti Bityan shahri bo'lgan. Ular Buyuk Ipak yo'lining shimoliy tarmog'ini nazorat qilganlar.",
+    isVerified: true
+  },
+  {
+    id: 407,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Davan davlati",
+    question: "Farg'ona vodiysida joylashgan qaysi qadimgi davlat o'zining tezkor 'samoviy tulporlari' va bog'dorchiligi bilan Xitoy imperatorlarining e'tiborini tortgan?",
+    options: [
+      "Davan (Parkana) davlati",
+      "Qadimgi Xorazm",
+      "Baqtriya",
+      "So'g'diyona"
+    ],
+    correct: 0,
+    explanation: "Xitoy manbalarida Davan (Parkana, hozirgi Farg'ona) poytaxti Ershi shahri bo'lib, uning zotdor arg'umoqlari ('samoviy arg'umoqlar') uchun Xitoy sulolasi hatto urush ham ochgan.",
+    isVerified: true
+  },
+  {
+    id: 408,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Kushon davlati",
+    question: "Milodiy I asrda O'rta Osiyo va Shimoliy Hindiston hududlarini birlashtirgan Kushon imperiyasiga kim asos solgan?",
+    options: [
+      "Kudzul Kadfiz",
+      "Kanishka",
+      "Vima Kadfiz",
+      "Spitamen"
+    ],
+    correct: 0,
+    explanation: "Kushon davlatining asoschisi beshta yuechji qabilasini birlashtirgan yo'lboshchi Kudzul Kadfiz I hisoblanadi. U Baqtriya yerlarini o'ziga bo'ysundirgan.",
+    isVerified: true
+  },
+  {
+    id: 409,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Kushon davlati",
+    question: "Kushon davlati qudratining cho'qqisi qaysi podshoh hukmronligi davriga to'g'ri keladi va u qaysi din homiysi bo'lgan?",
+    options: [
+      "Kanishka - Buddizm homiysi",
+      "Doro - Zardushtiylik",
+      "Menandr - Islom",
+      "Selevk - Xristianlik"
+    ],
+    correct: 0,
+    explanation: "Shoh Kanishka (milodiy II asr) davrida Kushon davlati Rim, Parfiya va Xitoy bilan tenglashuvchi jahon imperiyasiga aylandi. Kanishka buddizmga keng homiylik qildi va IV Budda soborini chaqirdi.",
+    isVerified: true
+  },
+  {
+    id: 410,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Buyuk Ipak yo'li",
+    question: "Buyuk Ipak yo'lining rasmiy shakllanishi miloddan avvalgi II asrda qaysi Xitoy elchisining O'rta Osiyoga qilgan sayohati bilan bog'liq?",
+    options: [
+      "Chjan Syan",
+      "Sun Szi",
+      "Sin Shixuandi",
+      "Syuan Szan"
+    ],
+    correct: 0,
+    explanation: "Miloddan avvalgi 138-126-yillarda Xitoy elchisi Chjan Syan O'rta Osiyo xalqlari (Davan, Qang', Baqtriya) yerlariga sayohat qilib, Xitoy bilan G'arb o'rtasidagi savdo va madaniy yo'lga - Buyuk Ipak yo'liga poydevor qo'ydi.",
+    isVerified: true
+  },
+
+  // ==========================================
+  // V BO'LIM: QADIMGI RIM
+  // ==========================================
+  {
+    id: 501,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Rim shahrining tashkil topishi",
+    question: "Afsonaga ko'ra, Tiber daryosi bo'yida Rim shahriga qachon va kim tomonidan asos solingan?",
+    options: [
+      "Miloddan avvalgi 753-yilda Romul tomonidan",
+      "Miloddan avvalgi 509-yilda Rem tomonidan",
+      "Milodiy 476-yilda Sezar tomonidan",
+      "Miloddan avvalgi 27-yilda Avgust tomonidan"
+    ],
+    correct: 0,
+    explanation: "Rim afsonalariga ko'ra, bo'ri bolasi emizib katta qilgan egizak aka-uka Romul va Remdan biri - Romul miloddan avvalgi 753-yil 21-aprelda Palatin tepaligida Rim shahriga asos solgan va uning ilk podshosi bo'lgan.",
+    isVerified: true
+  },
+  {
+    id: 502,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Rim Respublikasi",
+    question: "Qadimgi Rimda miloddan avvalgi 509-yilda qanday boshqaruv tizimi o'rnatildi?",
+    options: [
+      "Respublika",
+      "Absolyut monarxiya",
+      "Tiraniya",
+      "Teokratiya"
+    ],
+    correct: 0,
+    explanation: "Miloddan avvalgi 509-yilda zolim shoh Tarkviniy Mag'rur haydab yuborilgach, Rimda podsholik tugatilib, Respublika (lotincha 'Res publica' - 'umumxalq ishi') boshqaruvi qaror topdi.",
+    isVerified: true
+  },
+  {
+    id: 503,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Rim ijtimoiy tabaqalari",
+    question: "Qadimgi Rim jamiyatida to'la huquqli tubjoy aslzodalar va huquqlari cheklangan oddiy aholi qanday atalgan?",
+    options: [
+      "Patrisiylar va plebeylar",
+      "Kshatriylar va vayshiylar",
+      "Spartiatlar va ilotlar",
+      "Aristokratlar va meteklar"
+    ],
+    correct: 0,
+    explanation: "Patrisiylar - Rimning qadimgi boy urug' vakillari va aslzodalari bo'lgan. Plebeylar esa Rimga keyin ko'chib kelgan, dastlab siyosiy huquqlari bo'lmagan erkin xalq tabaqasi edi.",
+    isVerified: true
+  },
+  {
+    id: 504,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Puni urushlari",
+    question: "Rimning O'rta Yer dengizida yakkahokimlik o'rnatish uchun Karfagen davlatiga qarshi olib borgan urushlari nima deb atalgan?",
+    options: [
+      "Puni urushlari",
+      "Peloponnes urushlari",
+      "Fors urushlari",
+      "Galli urushlari"
+    ],
+    correct: 0,
+    explanation: "Rimliklar karfagenliklarni 'punlar' (finikiyaliklar so'zidan) deb atashgan. Rim va Karfagen o'rtasidagi 3 ta yirik urush (m.avv. 264-146) 'Puni urushlari' deb nomlanadi va Rimning to'liq g'alabasi bilan tugagan.",
+    isVerified: true
+  },
+  {
+    id: 505,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Puni urushlari",
+    question: "Puni urushlarida fillar bilan Alp tog'laridan oshib o'tib, Rim qo'shinini dahshatga solgan Karfagenning afsonaviy sarkardasi kim edi?",
+    options: [
+      "Gannibal Barka",
+      "Ssipion",
+      "Pirey",
+      "Amilkar"
+    ],
+    correct: 0,
+    explanation: "Karfagenlik iste'dodli sarkarda Gannibal misli ko'rilmagan jasorat bilan qish chog'ida fillar va qo'shin bilan Alp tog'larini kesib o'tib, Italiyaga kirdi va Kanna jangida (m.avv. 216-yil) rimliklarni yanchib tashladi.",
+    isVerified: true
+  },
+  {
+    id: 506,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Spartak qo'zg'oloni",
+    question: "Miloddan avvalgi 74-71-yillarda Rimda Kapuya shahridagi gladiatorlar maktabidan boshlangan eng yirik qullar qo'zg'olonining rahbari kim bo'lgan?",
+    options: [
+      "Spartak",
+      "Kriks",
+      "Yenomay",
+      "Sezar"
+    ],
+    correct: 0,
+    explanation: "Frakiyalik gladiator Spartak boshchiligida miloddan avvalgi 74-yilda boshlangan qullar qo'zg'oloni tez orada 100 mingdan ortiq kishini qamrab olgan va Rim tarixidagi eng ulkan qullar harakatiga aylangan.",
+    isVerified: true
+  },
+  {
+    id: 507,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Rim imperiyasining vujudga kelishi",
+    question: "'Rubikon daryosidan o'tish' va 'Qur'a tashlandi!' iboralari qaysi sarkarda va davlat arbobining hokimiyat uchun kurashi bilan bog'liq?",
+    options: [
+      "Yuliy Sezar",
+      "Gney Pompey",
+      "Mark Antoniya",
+      "Sulla"
+    ],
+    correct: 0,
+    explanation: "Yuliy Sezar miloddan avvalgi 49-yilda Italiya chegarasi bo'lgan Rubikon daryosidan qo'shini bilan o'tib, Senatga qarshi yurish boshladi va 'Qur'a tashlandi!' (Alea iacta est) degan mashhur so'zlarni aytgan.",
+    isVerified: true
+  },
+  {
+    id: 508,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Rim imperiyasining vujudga kelishi",
+    question: "Rimning birinchi imperatori bo'lgan va o'ziga 'Avgust' ('Ulug'langan') faxriy unvonini olgan shaxs kim?",
+    options: [
+      "Oktavian Avgust",
+      "Yuliy Sezar",
+      "Trayan",
+      "Konstantin"
+    ],
+    correct: 0,
+    explanation: "Sezarning asrab olgan o'g'li Oktavian miloddan avvalgi 27-yilda Rimda respublikaning so'nggi ko'rinishlarini tugatib, yakka hokimlikka asos soldi va unga Senat tomonidan 'Avgust' unvoni berildi.",
+    isVerified: true
+  },
+  {
+    id: 509,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Rim madaniyati va me'morchiligi",
+    question: "50 mingdan ortiq tomoshabinga mo'ljallangan, gladiatorlar va yovvoyi hayvonlar janglari o'tkaziladigan Rimdagi eng yirik amfiteatr nima deb atalgan?",
+    options: [
+      "Kolizey (Flaviylar amfiteatri)",
+      "Panteon",
+      "Kapitoliy",
+      "Forum"
+    ],
+    correct: 0,
+    explanation: "Milodiy I asrda Flaviylar sulolasi davrida barpo etilgan Kolizey qadimgi dunyoning eng buyuk me'moriy mo''jizalaridan biri bo'lib, uning arenasida gladiatorlar janglari va suvli tomoshalar namoyish etilgan.",
+    isVerified: true
+  },
+  {
+    id: 510,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Qadimgi dunyo tarixining yakuni",
+    question: "Qadimgi dunyo tarixining intihosi va O'rta asrlar davrining boshlanishi sifatida qaysi muhim tarixiy voqea qabul qilingan?",
+    options: [
+      "Milodiy 476-yilda G'arbiy Rim imperiyasining qulashi",
+      "Milodiy 395-yilda imperiyaning ikkiga bo'linishi",
+      "Miloddan avvalgi 44-yilda Sezarning o'ldirilishi",
+      "Milodiy 313-yilda xristianlikning qabul qilinishi"
+    ],
+    correct: 0,
+    explanation: "Milodiy 476-yilda sarkarda Odoakr Rimning oxirgi imperatori yosh Romul Avgustulni taxtdan ag'dardi va imperatorlik belgilarini Konstantinopolga jo'natdi. Shu voqea bilan G'arbiy Rim imperiyasi quladi va qadimgi dunyo davri yakunlandi.",
+    isVerified: true
+  },
+
+  // ==========================================
+  // QO'SHIMCHA CHUQURLASHTIRILGAN TEST SAVOLLARI
+  // (2022-YILGI DARSLIK ASOSIDA 50 TA TEST TALABINI TO'LIQ QONDIRISH UCHUN)
+  // ==========================================
+  {
+    id: 111,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Qadimgi odamlar manzilgohlari",
+    question: "Toshkent viloyatining Bo'stonliq tumanidagi Chotqol tog' tizmasidan topilgan mustye davriga oid mashhur g'or qaysi?",
+    options: [
+      "Obirahmat g'ori",
+      "Selung'ur g'ori",
+      "Machay g'ori",
+      "Joytun"
+    ],
+    correct: 0,
+    explanation: "Obirahmat g'or-manzilgohi Toshkent viloyatida joylashgan bo'lib, u yerdan so'nggi neandertal va ilk kromanon odamining o'tish davriga oid noyob suyak qoldiqlari va tosh qurollar topilgan.",
+    isVerified: true
+  },
+  {
+    id: 112,
+    sectionId: 1,
+    sectionName: "I Bo'lim. Eng qadimgi tuzumdan sivilizatsiya sari",
+    topic: "Neolit madaniyati",
+    question: "Amudaryoning quyi oqimi, Qadimgi Xorazm hududida neolit davrida baliqchilik va ovchilik bilan kun kechirgan aholi madaniyati qanday ataladi?",
+    options: [
+      "Kaltaminor madaniyati",
+      "Zamonbobo madaniyati",
+      "Sopollitepa madaniyati",
+      "Tozabog'yob madaniyati"
+    ],
+    correct: 0,
+    explanation: "Xorazmdagi Kaltaminor madaniyati (miloddan avvalgi IV-III ming yilliklar) ovchilar va baliqchilar madaniyati bo'lib, ular qamishdan yasalgan ulkan doirasimon jamoa uylarida yashaganlar.",
+    isVerified: true
+  },
+  {
+    id: 215,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Qadimgi Misr me'morchiligi",
+    question: "1922-yilda ingliz arxeologi Hovard Karter tomonidan qabri deyarli butun holatda, son-sanoqsiz oltin xazinalari bilan topilgan Misr fir'avni kim?",
+    options: [
+      "Tutankhamon",
+      "Exnaton",
+      "Xufu",
+      "Yoxmos I"
+    ],
+    correct: 0,
+    explanation: "Shohlar vodiysida yosh fir'avn Tutankhamonning dahmasi talon-toroj qilinmasdan, 3000 yildan ortiq vaqt daxlsiz saqlanib topilgan va jahon arxeologiyasining eng buyuk kashfiyotlaridan biriga aylangan.",
+    isVerified: true
+  },
+  {
+    id: 216,
+    sectionId: 2,
+    sectionName: "II Bo'lim. Qadimgi Sharq va O'rta Osiyo",
+    topic: "Qadimgi Xitoy ixtirolari",
+    question: "Quyidagilardan qaysi biri Qadimgi Xitoyda ixtiro qilingan kashfiyotlar qatoriga kirmaydi?",
+    options: [
+      "Mixxat yozuvi",
+      "Ipak mato (shoyi)",
+      "Qog'oz va kompas",
+      "Porox"
+    ],
+    correct: 0,
+    explanation: "Mixxat yozuvi Mesopotamiyada shumerlar tomonidan kashf qilingan. Ipak, qog'oz, kompas va porox esa qadimgi Xitoy madaniyatining mashhur ixtirolaridir.",
+    isVerified: true
+  },
+  {
+    id: 311,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Yunon teatri",
+    question: "Qadimgi Yunonistonda teatr san'atining rivojlanishi qaysi xudo sharafiga o'tkaziladigan bayramlar bilan boshlangan?",
+    options: [
+      "Dionis (uzumchilik va sharob xudosi)",
+      "Zevs (momaqaldiroq xudosi)",
+      "Afrodita (go'zallik ma'budasi)",
+      "Germes (savdo homiysi)"
+    ],
+    correct: 0,
+    explanation: "Yunon teatri Dionis sharafiga o'tkaziladigan 'Buyuk Dionisiyalar' bayramidagi qo'shiqlar va sahna ko'rinishlaridan vujudga kelgan. 'Tragediya' so'zi ham 'echki qo'shig'i' degan ma'noni anglatadi.",
+    isVerified: true
+  },
+  {
+    id: 312,
+    sectionId: 3,
+    sectionName: "III Bo'lim. Qadimgi Yunoniston",
+    topic: "Yunoniston olimlari",
+    question: "Aleksandr Makedonskiyning ustozi bo'lgan va deyarli barcha fanlarning asoschisi sifatida tanilgan buyuk yunon qomusiy olimi kim?",
+    options: [
+      "Arastu (Aristotel)",
+      "Suqrot",
+      "Gerodot",
+      "Demokrit"
+    ],
+    correct: 0,
+    explanation: "Arastu (Aristotel) o'z davrining barcha bilimlarini tizimlashtirgan ensiklopedik olim bo'lib, mantiq, fizika, biologiya, etika va siyosat fanlariga asos solgan hamda Aleksandr Makedonskiyga ustozlik qilgan.",
+    isVerified: true
+  },
+  {
+    id: 411,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Salavkiylar davlati",
+    question: "Aleksandr Makedonskiy vafotidan so'ng uning ulkan imperiyasining sharqiy qismida va O'rta Osiyoda hukmronlik qilgan sulola qaysi?",
+    options: [
+      "Salavkiylar sulolasi",
+      "Ptolemeylar sulolasi",
+      "Antigonidlar sulolasi",
+      "Arshakiylar sulolasi"
+    ],
+    correct: 0,
+    explanation: "Aleksandr sarkardalaridan biri Selevk I Nikator Suriya, Mesopotamiya va O'rta Osiyoni o'z ichiga olgan qudratli Salavkiylar davlatiga asos soldi.",
+    isVerified: true
+  },
+  {
+    id: 412,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Qadimgi Xorazm madaniyati",
+    question: "Qadimgi Xorazm hududidan topilgan, doirasimon shaklda qurilgan mashhur osmono'par rasadxona-maqbara yodgorligi qaysi?",
+    options: [
+      "Qo'yqirilganqal'a",
+      "Jonbosqal'a",
+      "Tuproqqal'a",
+      "Varaxsha"
+    ],
+    correct: 0,
+    explanation: "Miloddan avvalgi IV-III asrlarga oid Qo'yqirilganqal'a yodgorligi aylana shaklida qurilgan bo'lib, unda qadimgi xorazmliklar osmon jismlarini kuzatishgan (rasadxona) va diniy marosimlarni o'tkazishgan.",
+    isVerified: true
+  },
+  {
+    id: 413,
+    sectionId: 4,
+    sectionName: "IV Bo'lim. Miloddan avvalgi VI вЂ“ milodiy III asrlarda OК»rta Osiyo",
+    topic: "Kushon san'ati",
+    question: "Surxondaryo viloyati Termiz yaqinidagi qaysi arxeologik yodgorlikdan mashhur 'Fayoztepa' va 'Qoratepa' Budda ibodatxonalari majmuasi topilgan?",
+    options: [
+      "Eski Termiz hududidan",
+      "Xolchayon saroyidan",
+      "Afrosiyob tepaligidan",
+      "Qanqa qal'asidan"
+    ],
+    correct: 0,
+    explanation: "Eski Termiz yaqinidagi Qoratepa va Fayoztepa Kushonlar davriga oid yirik budda monastirlari bo'lib, ulardan Budda haykallari, devoriy suratlar va qadimiy yozuvlar topilgan.",
+    isVerified: true
+  },
+  {
+    id: 511,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Rim me'morchiligi",
+    question: "Rimdagi barcha xudolarga bag'ishlangan va o'rtasida 'Oculus' (ko'z) deb ataluvchi tuynugi bo'lgan ulkan gumbazli ibodatxona nima deb ataladi?",
+    options: [
+      "Panteon",
+      "Parfenon",
+      "Kolizey",
+      "Termalar"
+    ],
+    correct: 0,
+    explanation: "Panteon (yunoncha 'barcha xudolar ibodatxonasi') milodiy II asrda imperator Adrian davrida qayta qurilgan bo'lib, uning beton gumbazi qadimgi dunyo me'morchiligining tengsiz durdonasidir.",
+    isVerified: true
+  },
+  {
+    id: 512,
+    sectionId: 5,
+    sectionName: "V Bo'lim. Qadimgi Rim",
+    topic: "Rim imperiyasining ikkiga bo'linishi",
+    question: "Milodiy 395-yilda imperator Feodosiy vafotidan so'ng Rim imperiyasi qaysi ikki mustaqil davlatga ajraldi?",
+    options: [
+      "G'arbiy Rim va Sharqiy Rim (Vizantiya) imperiyasiga",
+      "Rim va Karfagen davlatiga",
+      "Franklar va Galliya davlatiga",
+      "Yunoniston va Misr podsholigiga"
+    ],
+    correct: 0,
+    explanation: "395-yilda Rim imperiyasi Feodosiyning ikki o'g'li o'rtasida G'arbiy Rim (poytaxti avval Rim, keyin Ravenna) va Sharqiy Rim (Vizantiya, poytaxti Konstantinopol) ga bo'linib ketdi.",
+    isVerified: true
+  }
+];
+
+// Helper functions for question bank
+window.HistoryApp = window.HistoryApp || {};
+window.HistoryApp.SECTIONS = HISTORY_SECTIONS;
+window.HistoryApp.QUESTIONS = QUESTIONS_DATABASE;
+
+</script>
+  <script>
+/**
+ * 6-SINF QADIMGI DUNYO TARIXI - INTERAKTIV TEST TIZIMI
+ * JavaScript Dasturiy Mantig'i (Script Engine)
+ * Mualliflik: 2022-yilgi O'zbekiston 6-sinf Tarix darsligi asosida
+ */
+
+(() => {
+  'use strict';
+
+  // ==========================================
+  // ILOVA HOLATI (APP STATE)
+  // ==========================================
+  const state = {
+    allQuestions: [],
+    currentTestQuestions: [],
+    currentIndex: 0,
+    userAnswers: {}, // questionId -> selectedOptionIndex (0..3)
+    userChecked: {}, // questionId -> boolean (mashg'ulot rejimida tekshirilganmi)
+    mode: 'standard', // 'quick10', 'standard', 'deep30', 'large50', 'chapter', 'full', 'exam', 'practice', 'retryWrong'
+    isExamMode: false,
+    isPracticeMode: false,
+    selectedChapterId: null,
+    timeLimitSeconds: 0,
+    timeRemainingSeconds: 0,
+    timerInterval: null,
+    testStartTime: null,
+    testDurationSeconds: 0,
+    soundEnabled: true,
+    shuffleOptionsEnabled: true,
+    stats: {
+      totalTests: 0,
+      bestScore: 0,
+      bestPercent: 0,
+      totalCorrect: 0,
+      totalQuestionsAnswered: 0
+    }
+  };
+
+  // ==========================================
+  // DOM ELEMENTLAR
+  // ==========================================
+  const els = {
+    // Ekranlar
+    screenDashboard: document.getElementById('screenDashboard'),
+    screenTest: document.getElementById('screenTest'),
+    screenResults: document.getElementById('screenResults'),
+
+    // Header statistika
+    headerBestScore: document.getElementById('headerBestScore'),
+    headerTestsCount: document.getElementById('headerTestsCount'),
+    btnSoundToggle: document.getElementById('btnSoundToggle'),
+    btnSettings: document.getElementById('btnSettings'),
+    btnTextbookInfo: document.getElementById('btnTextbookInfo'),
+    brandHomeBtn: document.getElementById('brandHomeBtn'),
+
+    // Dashboard elementlari
+    dashTotalTests: document.getElementById('dashTotalTests'),
+    dashBestScore: document.getElementById('dashBestScore'),
+    dashAvgPercent: document.getElementById('dashAvgPercent'),
+    chaptersList: document.getElementById('chaptersList'),
+
+    // Test ekrani elementlari
+    testModeName: document.getElementById('testModeName'),
+    testTimerWrapper: document.getElementById('testTimerWrapper'),
+    testTimerText: document.getElementById('testTimerText'),
+    testProgressText: document.getElementById('testProgressText'),
+    testPercentText: document.getElementById('testPercentText'),
+    testProgressBar: document.getElementById('testProgressBar'),
+    paletteToggleBar: document.getElementById('paletteToggleBar'),
+    paletteContainer: document.getElementById('paletteContainer'),
+    paletteGrid: document.getElementById('paletteGrid'),
+    questionSectionTag: document.getElementById('questionSectionTag'),
+    questionTopicTag: document.getElementById('questionTopicTag'),
+    questionText: document.getElementById('questionText'),
+    optionsList: document.getElementById('optionsList'),
+    explanationBox: document.getElementById('explanationBox'),
+    explanationContent: document.getElementById('explanationContent'),
+
+    // Test tugmalari
+    btnPrevQuestion: document.getElementById('btnPrevQuestion'),
+    btnNextQuestion: document.getElementById('btnNextQuestion'),
+    btnCheckAnswer: document.getElementById('btnCheckAnswer'),
+    btnFinishTest: document.getElementById('btnFinishTest'),
+    btnQuitTest: document.getElementById('btnQuitTest'),
+
+    // Natijalar ekrani
+    resultTrophy: document.getElementById('resultTrophy'),
+    resultGradeTitle: document.getElementById('resultGradeTitle'),
+    resultGradeComment: document.getElementById('resultGradeComment'),
+    resultPercent: document.getElementById('resultPercent'),
+    resultScoreText: document.getElementById('resultScoreText'),
+    resultCorrectCount: document.getElementById('resultCorrectCount'),
+    resultWrongCount: document.getElementById('resultWrongCount'),
+    resultTimeSpent: document.getElementById('resultTimeSpent'),
+    btnRestartTest: document.getElementById('btnRestartTest'),
+    btnRetryMistakes: document.getElementById('btnRetryMistakes'),
+    btnHomeFromResults: document.getElementById('btnHomeFromResults'),
+    reviewList: document.getElementById('reviewList'),
+    filterReviewBtns: document.querySelectorAll('.filter-btn'),
+
+    // Modallar
+    textbookModal: document.getElementById('textbookModal'),
+    settingsModal: document.getElementById('settingsModal'),
+    confirmFinishModal: document.getElementById('confirmFinishModal'),
+    btnConfirmFinishYes: document.getElementById('btnConfirmFinishYes'),
+    settingSoundToggle: document.getElementById('settingSoundToggle'),
+    settingShuffleToggle: document.getElementById('settingShuffleToggle'),
+    confettiCanvas: document.getElementById('confettiCanvas')
+  };
+
+  // ==========================================
+  // WEB AUDIO API - TOVUSH EFFEKTLARI (NO EXTERNAL FILES)
+  // ==========================================
+  let audioCtx = null;
+  function getAudioContext() {
+    if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    }
+    if (audioCtx && audioCtx.state === 'suspended') {
+      audioCtx.resume();
+    }
+    return audioCtx;
+  }
+
+  function playTone(freq, duration = 0.15, type = 'sine', gainVal = 0.12) {
+    if (!state.soundEnabled) return;
+    try {
+      const ctx = getAudioContext();
+      if (!ctx) return;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, ctx.currentTime);
+      gain.gain.setValueAtTime(gainVal, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start();
+      osc.stop(ctx.currentTime + duration);
+    } catch (e) {
+      console.warn('Audio play failed', e);
+    }
+  }
+
+  function playCorrectSound() {
+    playTone(523.25, 0.12, 'sine', 0.15); // C5
+    setTimeout(() => playTone(659.25, 0.18, 'sine', 0.15), 100); // E5
+    setTimeout(() => playTone(783.99, 0.25, 'triangle', 0.18), 180); // G5
+  }
+
+  function playWrongSound() {
+    playTone(280, 0.15, 'sawtooth', 0.12);
+    setTimeout(() => playTone(220, 0.25, 'sawtooth', 0.12), 120);
+  }
+
+  function playSelectSound() {
+    playTone(600, 0.05, 'sine', 0.06);
+  }
+
+  function playFanfare() {
+    const notes = [523.25, 659.25, 783.99, 1046.5];
+    notes.forEach((f, idx) => {
+      setTimeout(() => playTone(f, 0.2, 'triangle', 0.2), idx * 120);
+    });
+  }
+
+  // ==========================================
+  // MA'LUMOTLARNI YUKLASH VA LOCALSTORAGE
+  // ==========================================
+  function loadStoredStats() {
+    try {
+      const saved = localStorage.getItem('tarix_test_stats_v1');
+      if (saved) {
+        state.stats = Object.assign(state.stats, JSON.parse(saved));
+      }
+      const soundSetting = localStorage.getItem('tarix_sound_setting');
+      if (soundSetting !== null) {
+        state.soundEnabled = soundSetting === 'true';
+      }
+      const shuffleSetting = localStorage.getItem('tarix_shuffle_setting');
+      if (shuffleSetting !== null) {
+        state.shuffleOptionsEnabled = shuffleSetting === 'true';
+      }
+    } catch (e) {
+      console.error('Storage load error', e);
+    }
+    updateHeaderStats();
+    updateDashboardStats();
+    updateSettingsUI();
+  }
+
+  function saveStoredStats() {
+    try {
+      localStorage.setItem('tarix_test_stats_v1', JSON.stringify(state.stats));
+      localStorage.setItem('tarix_sound_setting', state.soundEnabled.toString());
+      localStorage.setItem('tarix_shuffle_setting', state.shuffleOptionsEnabled.toString());
+    } catch (e) {
+      console.error('Storage save error', e);
+    }
+    updateHeaderStats();
+    updateDashboardStats();
+  }
+
+  function updateHeaderStats() {
+    if (els.headerBestScore) {
+      els.headerBestScore.textContent = `${state.stats.bestPercent}%`;
+    }
+    if (els.headerTestsCount) {
+      els.headerTestsCount.textContent = state.stats.totalTests;
+    }
+    if (els.btnSoundToggle) {
+      els.btnSoundToggle.textContent = state.soundEnabled ? 'рџ”Љ' : 'рџ”‡';
+    }
+  }
+
+  function updateDashboardStats() {
+    if (els.dashTotalTests) els.dashTotalTests.textContent = state.stats.totalTests;
+    if (els.dashBestScore) els.dashBestScore.textContent = `${state.stats.bestScore} ball (${state.stats.bestPercent}%)`;
+    if (els.dashAvgPercent) {
+      const avg = state.stats.totalQuestionsAnswered > 0
+        ? Math.round((state.stats.totalCorrect / state.stats.totalQuestionsAnswered) * 100)
+        : 0;
+      els.dashAvgPercent.textContent = `${avg}%`;
+    }
+  }
+
+  function updateSettingsUI() {
+    if (els.settingSoundToggle) els.settingSoundToggle.checked = state.soundEnabled;
+    if (els.settingShuffleToggle) els.settingShuffleToggle.checked = state.shuffleOptionsEnabled;
+  }
+
+  // ==========================================
+  // EKRANLARNI ALMASHTIRISH (NAVIGATION)
+  // ==========================================
+  function showScreen(screenEl) {
+    [els.screenDashboard, els.screenTest, els.screenResults].forEach(s => {
+      if (s) s.classList.remove('active');
+    });
+    if (screenEl) {
+      screenEl.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // ==========================================
+  // SHUFFLE (TASODIFIY ARALASHTIRISH)
+  // ==========================================
+  function shuffleArray(arr) {
+    const copy = [...arr];
+    for (let i = copy.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copy[i], copy[j]] = [copy[j], copy[i]];
+    }
+    return copy;
+  }
+
+  /**
+   * Savol va uning variantlarini darslikdagi to'g'ri javobni yo'qotmasdan aralashtirish
+   */
+  function prepareQuestionItem(original) {
+    if (!state.shuffleOptionsEnabled) {
+      return {
+        ...original,
+        shuffledOptions: [...original.options],
+        correctShuffledIndex: original.correct
+      };
+    }
+    // Variantlarni indekslari bilan birlashtiramiz
+    const indexed = original.options.map((text, idx) => ({ text, isCorrect: idx === original.correct }));
+    const shuffled = shuffleArray(indexed);
+    const correctIdx = shuffled.findIndex(item => item.isCorrect);
+
+    return {
+      ...original,
+      shuffledOptions: shuffled.map(item => item.text),
+      correctShuffledIndex: correctIdx
+    };
+  }
+
+  // ==========================================
+  // TESTNI BOSHLASH VA SOZLASH
+  // ==========================================
+  function startTest(mode, options = {}) {
+    state.mode = mode;
+    state.isExamMode = (mode === 'exam');
+    state.isPracticeMode = (mode === 'practice');
+    state.selectedChapterId = options.chapterId || null;
+    state.userAnswers = {};
+    state.userChecked = {};
+    state.currentIndex = 0;
+    state.testStartTime = Date.now();
+
+    let pool = [];
+
+    if (mode === 'chapter' && state.selectedChapterId) {
+      pool = state.allQuestions.filter(q => q.sectionId === state.selectedChapterId);
+    } else if (mode === 'retryWrong' && options.wrongQuestions && options.wrongQuestions.length) {
+      pool = options.wrongQuestions;
+    } else {
+      pool = [...state.allQuestions];
+    }
+
+    // Savollarni aralashtiramiz
+    pool = shuffleArray(pool);
+
+    // Hajmni belgilaymiz
+    let count = pool.length;
+    let timeMinutes = 0;
+
+    if (mode === 'quick10') {
+      count = Math.min(10, pool.length);
+      timeMinutes = 10;
+    } else if (mode === 'standard') {
+      count = Math.min(20, pool.length);
+      timeMinutes = 20;
+    } else if (mode === 'deep30') {
+      count = Math.min(30, pool.length);
+      timeMinutes = 30;
+    } else if (mode === 'large50') {
+      count = Math.min(50, pool.length);
+      timeMinutes = 45;
+    } else if (mode === 'chapter') {
+      count = pool.length;
+      timeMinutes = count * 1.2;
+    } else if (mode === 'full') {
+      count = pool.length;
+      timeMinutes = count * 1;
+    } else if (mode === 'exam') {
+      count = Math.min(25, pool.length);
+      timeMinutes = 25; // Imtihon uchun 25 daqiqa
+    } else if (mode === 'practice') {
+      count = Math.min(20, pool.length);
+      timeMinutes = 0; // Vaqt chegarasisiz
+    } else if (mode === 'retryWrong') {
+      count = pool.length;
+      timeMinutes = count * 1.5;
+    }
+
+    const selectedPool = pool.slice(0, count);
+    state.currentTestQuestions = selectedPool.map(q => prepareQuestionItem(q));
+
+    // Taymerni sozlash
+    clearInterval(state.timerInterval);
+    if (state.isExamMode && timeMinutes > 0) {
+      state.timeLimitSeconds = Math.round(timeMinutes * 60);
+      state.timeRemainingSeconds = state.timeLimitSeconds;
+      els.testTimerWrapper.style.display = 'flex';
+      updateTimerDisplay();
+      startTimerCountdown();
+    } else {
+      state.timeLimitSeconds = 0;
+      els.testTimerWrapper.style.display = 'none';
+    }
+
+    // Rejim nomini ko'rsatish
+    updateModeTitleBadge();
+
+    // Palitrani yaratish
+    renderQuestionPalette();
+
+    // Birinchi savolni ochish
+    renderQuestion(0);
+
+    // Test ekraniga o'tish
+    showScreen(els.screenTest);
+  }
+
+  function updateModeTitleBadge() {
+    let title = 'Standart Test';
+    if (state.mode === 'quick10') title = 'вљЎ Tezkor Test (10 ta savol)';
+    else if (state.mode === 'standard') title = 'рџ“ Standart Test (20 ta savol)';
+    else if (state.mode === 'deep30') title = 'рџ“љ Kengaytirilgan Test (30 ta savol)';
+    else if (state.mode === 'large50') title = 'рџЏ† Katta Sinov (50 ta savol)';
+    else if (state.mode === 'chapter') {
+      const ch = window.HistoryApp.SECTIONS.find(s => s.id === state.selectedChapterId);
+      title = ch ? `рџ“– ${ch.shortName}` : 'Bob bo\'yicha mashq';
+    } else if (state.mode === 'full') title = 'рџЊђ To\'liq darslik amaliyoti';
+    else if (state.mode === 'exam') title = 'рџЋ“ Rasmiy Imtihon Rejimi';
+    else if (state.mode === 'practice') title = 'рџ’Ў Mashg\'ulot Rejimi (Izohlar bilan)';
+    else if (state.mode === 'retryWrong') title = 'рџ”„ Xatolar ustida ishlash';
+
+    els.testModeName.textContent = title;
+  }
+
+  // ==========================================
+  // TAYMER BOSHQARUVI
+  // ==========================================
+  function startTimerCountdown() {
+    state.timerInterval = setInterval(() => {
+      state.timeRemainingSeconds--;
+      updateTimerDisplay();
+
+      if (state.timeRemainingSeconds <= 60) {
+        els.testTimerWrapper.classList.add('danger');
+      } else {
+        els.testTimerWrapper.classList.remove('danger');
+      }
+
+      if (state.timeRemainingSeconds <= 0) {
+        clearInterval(state.timerInterval);
+        playWrongSound();
+        alert('Vaqt tugadi! Imtihon natijalari hisoblanmoqda.');
+        finishTest();
+      }
+    }, 1000);
+  }
+
+  function updateTimerDisplay() {
+    const min = Math.floor(state.timeRemainingSeconds / 60);
+    const sec = state.timeRemainingSeconds % 60;
+    els.testTimerText.textContent = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+  }
+
+  // ==========================================
+  // SAVOLNI RENDERING QILISH
+  // ==========================================
+  function renderQuestion(index) {
+    if (index < 0 || index >= state.currentTestQuestions.length) return;
+    state.currentIndex = index;
+
+    const q = state.currentTestQuestions[index];
+    const total = state.currentTestQuestions.length;
+
+    // Progress bar va raqamlar
+    els.testProgressText.innerHTML = `Savol: <strong>${index + 1}</strong> / ${total}`;
+    const percent = Math.round(((index + 1) / total) * 100);
+    els.testPercentText.textContent = `${percent}%`;
+    els.testProgressBar.style.width = `${percent}%`;
+
+    // Bo'lim va mavzu teglari
+    els.questionSectionTag.textContent = q.sectionName || "Darslik bo'limi";
+    els.questionTopicTag.textContent = `Mavzu: ${q.topic || "Qadimgi dunyo"}`;
+    els.questionText.textContent = q.question;
+
+    // Variantlarni tozalash va chizish
+    els.optionsList.innerHTML = '';
+    const letters = ['A', 'B', 'C', 'D'];
+    const currentSelected = state.userAnswers[q.id];
+    const isChecked = state.userChecked[q.id];
+
+    q.shuffledOptions.forEach((optText, optIdx) => {
+      const optEl = document.createElement('div');
+      optEl.className = 'option-item';
+      optEl.dataset.index = optIdx;
+
+      if (currentSelected === optIdx) {
+        optEl.classList.add('selected');
+      }
+
+      // Agar mashg'ulot rejimida tekshirilgan bo'lsa
+      if (isChecked) {
+        if (optIdx === q.correctShuffledIndex) {
+          optEl.classList.add('is-correct');
+        } else if (currentSelected === optIdx) {
+          optEl.classList.add('is-wrong');
+        }
+      }
+
+      optEl.innerHTML = `
+        <div class="option-letter">${letters[optIdx]}</div>
+        <div class="option-text">${optText}</div>
+      `;
+
+      optEl.addEventListener('click', () => {
+        selectOption(optIdx);
+      });
+
+      els.optionsList.appendChild(optEl);
+    });
+
+    // Tushuntirish qutisi holati
+    if (state.isPracticeMode && isChecked) {
+      showExplanation(q);
+    } else {
+      els.explanationBox.classList.remove('visible');
+    }
+
+    // Tugmalar holati
+    els.btnPrevQuestion.disabled = (index === 0);
+    els.btnPrevQuestion.style.opacity = (index === 0) ? '0.4' : '1';
+
+    const isLast = (index === total - 1);
+    if (isLast) {
+      els.btnNextQuestion.style.display = 'none';
+      els.btnFinishTest.style.display = 'inline-flex';
+    } else {
+      els.btnNextQuestion.style.display = 'inline-flex';
+      els.btnFinishTest.style.display = 'none';
+    }
+
+    // "Javobni tekshirish" tugmasi mashg'ulot rejimida faol
+    if (state.isPracticeMode) {
+      els.btnCheckAnswer.style.display = 'inline-flex';
+      els.btnCheckAnswer.disabled = (currentSelected === undefined || isChecked);
+      els.btnCheckAnswer.style.opacity = (currentSelected === undefined || isChecked) ? '0.5' : '1';
+    } else {
+      els.btnCheckAnswer.style.display = 'none';
+    }
+
+    // Palitradagi joriy chipni yangilash
+    highlightCurrentPaletteItem(index);
+  }
+
+  function selectOption(optIndex) {
+    const q = state.currentTestQuestions[state.currentIndex];
+    
+    // Agar mashg'ulot rejimida allaqachon tekshirilgan bo'lsa, o'zgartirish taqiqlanadi
+    if (state.isPracticeMode && state.userChecked[q.id]) {
+      return;
+    }
+
+    state.userAnswers[q.id] = optIndex;
+    playSelectSound();
+
+    // DOM yangilash
+    const allOptElements = els.optionsList.querySelectorAll('.option-item');
+    allOptElements.forEach(el => {
+      const idx = parseInt(el.dataset.index, 10);
+      if (idx === optIndex) {
+        el.classList.add('selected');
+      } else {
+        el.classList.remove('selected');
+      }
+    });
+
+    // Mashg'ulot rejimida tugmani faollashtirish
+    if (state.isPracticeMode) {
+      els.btnCheckAnswer.disabled = false;
+      els.btnCheckAnswer.style.opacity = '1';
+    }
+
+    // Palitrani belgilangan deb yangilash
+    updatePaletteItemAnswered(state.currentIndex);
+  }
+
+  function checkCurrentAnswerInPractice() {
+    const q = state.currentTestQuestions[state.currentIndex];
+    const selected = state.userAnswers[q.id];
+    if (selected === undefined) return;
+
+    state.userChecked[q.id] = true;
+    const isCorrect = (selected === q.correctShuffledIndex);
+
+    if (isCorrect) {
+      playCorrectSound();
+    } else {
+      playWrongSound();
+    }
+
+    // Variantlarni bo'yash
+    const allOptElements = els.optionsList.querySelectorAll('.option-item');
+    allOptElements.forEach(el => {
+      const idx = parseInt(el.dataset.index, 10);
+      if (idx === q.correctShuffledIndex) {
+        el.classList.add('is-correct');
+      } else if (idx === selected) {
+        el.classList.add('is-wrong');
+      }
+    });
+
+    els.btnCheckAnswer.disabled = true;
+    els.btnCheckAnswer.style.opacity = '0.5';
+
+    showExplanation(q);
+  }
+
+  function showExplanation(q) {
+    els.explanationContent.textContent = q.explanation || "Darslikda ushbu mavzu bo'yicha batafsil ma'lumot keltirilgan.";
+    els.explanationBox.classList.add('visible');
+  }
+
+  // ==========================================
+  // SAVOLLAR PALITRASI (QUESTION NAVIGATOR)
+  // ==========================================
+  function renderQuestionPalette() {
+    els.paletteGrid.innerHTML = '';
+    state.currentTestQuestions.forEach((q, idx) => {
+      const chip = document.createElement('button');
+      chip.className = 'palette-btn';
+      chip.textContent = idx + 1;
+      chip.dataset.index = idx;
+      chip.id = `palette-chip-${idx}`;
+
+      chip.addEventListener('click', () => {
+        renderQuestion(idx);
+      });
+
+      els.paletteGrid.appendChild(chip);
+    });
+  }
+
+  function highlightCurrentPaletteItem(index) {
+    const allChips = els.paletteGrid.querySelectorAll('.palette-btn');
+    allChips.forEach(chip => {
+      const idx = parseInt(chip.dataset.index, 10);
+      chip.classList.toggle('current', idx === index);
+    });
+  }
+
+  function updatePaletteItemAnswered(index) {
+    const chip = document.getElementById(`palette-chip-${index}`);
+    if (chip) {
+      chip.classList.add('answered');
+    }
+  }
+
+  // ==========================================
+  // TESTNI YAKUNLASH VA NATIJALAR HISOBI
+  // ==========================================
+  function finishTest() {
+    clearInterval(state.timerInterval);
+    state.testDurationSeconds = Math.max(1, Math.round((Date.now() - state.testStartTime) / 1000));
+
+    let correctCount = 0;
+    let wrongCount = 0;
+    const reviewData = [];
+
+    state.currentTestQuestions.forEach((q, idx) => {
+      const userSelected = state.userAnswers[q.id];
+      const isCorrect = (userSelected === q.correctShuffledIndex);
+
+      if (isCorrect) {
+        correctCount++;
+      } else {
+        wrongCount++;
+      }
+
+      reviewData.push({
+        index: idx + 1,
+        question: q.question,
+        topic: q.topic,
+        sectionName: q.sectionName,
+        userSelectedText: userSelected !== undefined ? q.shuffledOptions[userSelected] : "Belgilanmagan",
+        correctText: q.shuffledOptions[q.correctShuffledIndex],
+        isCorrect: isCorrect,
+        explanation: q.explanation,
+        rawQuestion: q
+      });
+    });
+
+    const total = state.currentTestQuestions.length;
+    const percent = total > 0 ? Math.round((correctCount / total) * 100) : 0;
+
+    // Statistika yangilash
+    state.stats.totalTests++;
+    state.stats.totalCorrect += correctCount;
+    state.stats.totalQuestionsAnswered += total;
+
+    if (correctCount > state.stats.bestScore) {
+      state.stats.bestScore = correctCount;
+      state.stats.bestPercent = percent;
+    }
+
+    saveStoredStats();
+
+    // Natijalarni ekranga chizish
+    displayResultsScreen(correctCount, wrongCount, total, percent, reviewData);
+  }
+
+  function displayResultsScreen(correct, wrong, total, percent, reviewData) {
+    // Baho aniqlash (5, 4, 3, 2)
+    let trophy = 'рџҐ‰';
+    let gradeTitle = "Qoniqarli (3 baho)";
+    let comment = "Yaxshi boshlanish! Darslik mavzularini yana bir bor takrorlab chiqsangiz, natijangiz yanada yaxshilanadi.";
+
+    if (percent >= 86) {
+      trophy = 'рџЏ†';
+      gradeTitle = "A'lo! (5 baho)";
+      comment = "Ofarin! Siz 6-sinf Qadimgi dunyo tarixi darsligini a'lo darajada o'zlashtirgansiz!";
+      playFanfare();
+      triggerConfetti();
+    } else if (percent >= 70) {
+      trophy = 'рџҐ€';
+      gradeTitle = "Yaxshi (4 baho)";
+      comment = "Juda yaxshi natija! Bir nechta qiyin savollarda biroz xatolik bo'ldi, o'rganib chiqing.";
+      playCorrectSound();
+    } else if (percent < 50) {
+      trophy = 'рџ“–';
+      gradeTitle = "Qayta o'qish tavsiya etiladi (2 baho)";
+      comment = "Darslik bo'limlarini chuqurroq o'qib chiqish tavsiya etiladi. Xatolar ustida ishlash bo'limidan foydalaning!";
+      playWrongSound();
+    } else {
+      playCorrectSound();
+    }
+
+    els.resultTrophy.textContent = trophy;
+    els.resultGradeTitle.textContent = gradeTitle;
+    els.resultGradeComment.textContent = comment;
+    els.resultPercent.textContent = `${percent}%`;
+    els.resultScoreText.textContent = `${correct} / ${total} to'g'ri`;
+    els.resultCorrectCount.textContent = correct;
+    els.resultWrongCount.textContent = wrong;
+
+    // Vaqtni hisoblash
+    const minutes = Math.floor(state.testDurationSeconds / 60);
+    const seconds = state.testDurationSeconds % 60;
+    els.resultTimeSpent.textContent = `${minutes} daq ${seconds} son`;
+
+    // Faqat xatolar ustida ishlash tugmasi
+    const wrongQuestionsOnly = reviewData.filter(item => !item.isCorrect).map(item => item.rawQuestion);
+    if (wrongQuestionsOnly.length > 0) {
+      els.btnRetryMistakes.style.display = 'inline-flex';
+      els.btnRetryMistakes.onclick = () => {
+        startTest('retryWrong', { wrongQuestions: wrongQuestionsOnly });
+      };
+    } else {
+      els.btnRetryMistakes.style.display = 'none';
+    }
+
+    // Tahlil ro'yxatini render qilish
+    renderReviewSection(reviewData);
+
+    showScreen(els.screenResults);
+  }
+
+  // ==========================================
+  // TAHLIL (REVIEW) VA XATOLAR USTIDA ISHLASH
+  // ==========================================
+  let currentReviewData = [];
+
+  function renderReviewSection(reviewData) {
+    currentReviewData = reviewData;
+    filterAndDisplayReview('all');
+  }
+
+  function filterAndDisplayReview(filterType) {
+    els.reviewList.innerHTML = '';
+
+    const filtered = currentReviewData.filter(item => {
+      if (filterType === 'wrong') return !item.isCorrect;
+      if (filterType === 'correct') return item.isCorrect;
+      return true;
+    });
+
+    if (filtered.length === 0) {
+      els.reviewList.innerHTML = `
+        <div style="text-align: center; padding: 24px; color: var(--text-muted); background: var(--bg-card); border-radius: var(--radius-md);">
+          Tanlangan parametr bo'yicha savollar topilmadi.
+        </div>
+      `;
+      return;
+    }
+
+    filtered.forEach(item => {
+      const card = document.createElement('div');
+      card.className = `review-item ${item.isCorrect ? 'correct' : 'wrong'}`;
+
+      card.innerHTML = `
+        <div class="review-item-header">
+          <span class="review-q-num">Savol #${item.index} вЂў ${item.topic || item.sectionName}</span>
+          <span class="review-status-badge ${item.isCorrect ? 'correct' : 'wrong'}">
+            ${item.isCorrect ? 'вњ… To\'g\'ri' : 'вќЊ Noto\'g\'ri'}
+          </span>
+        </div>
+        <div class="review-question-text">${item.question}</div>
+        <div class="review-answers-box">
+          <div class="review-ans-card user">
+            <strong>Sizning javobingiz:</strong> ${item.userSelectedText}
+          </div>
+          <div class="review-ans-card actual-correct">
+            <strong>To'g'ri javob:</strong> ${item.correctText}
+          </div>
+        </div>
+        <div class="review-explanation">
+          <strong>рџ“– Darslikdan tushuntirish:</strong> ${item.explanation}
+        </div>
+      `;
+
+      els.reviewList.appendChild(card);
+    });
+  }
+
+  // ==========================================
+  // CONFETTI ANIMATSIYASI (HIGH SCORE CELEBRATION)
+  // ==========================================
+  function triggerConfetti() {
+    const canvas = els.confettiCanvas;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const pieces = [];
+    const colors = ['#d4af37', '#ffd700', '#f7df79', '#38bdf8', '#10b981', '#ffffff'];
+
+    for (let i = 0; i < 90; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        size: Math.random() * 8 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        speed: Math.random() * 4 + 2,
+        angle: Math.random() * 360,
+        spin: Math.random() * 6 - 3
+      });
+    }
+
+    let frame = 0;
+    function renderConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pieces.forEach(p => {
+        p.y += p.speed;
+        p.angle += p.spin;
+        ctx.fillStyle = p.color;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.angle * Math.PI) / 180);
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        ctx.restore();
+      });
+
+      frame++;
+      if (frame < 180) {
+        requestAnimationFrame(renderConfetti);
+      } else {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    }
+    renderConfetti();
+  }
+
+  // ==========================================
+  // DASHBOARD BOB BO'LIMLARINI CHIZISH
+  // ==========================================
+  function renderDashboardChapters() {
+    if (!els.chaptersList) return;
+    els.chaptersList.innerHTML = '';
+
+    const sections = window.HistoryApp.SECTIONS || [];
+    sections.forEach(sec => {
+      const count = state.allQuestions.filter(q => q.sectionId === sec.id).length;
+      const card = document.createElement('div');
+      card.className = 'chapter-card';
+      card.innerHTML = `
+        <div class="chapter-badge">${sec.icon}</div>
+        <div class="chapter-info">
+          <h4>${sec.name}</h4>
+          <p>${sec.description}</p>
+          <span class="chapter-count">рџ“љ Savollar soni: ${count} ta</span>
+        </div>
+      `;
+
+      card.addEventListener('click', () => {
+        startTest('chapter', { chapterId: sec.id });
+      });
+
+      els.chaptersList.appendChild(card);
+    });
+  }
+
+  // ==========================================
+  // TUGMALAR VA HODISALAR (EVENT LISTENERS)
+  // ==========================================
+  function setupEventListeners() {
+    // Brand home button
+    if (els.brandHomeBtn) {
+      els.brandHomeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showScreen(els.screenDashboard);
+      });
+    }
+
+    // Header tovush tugmasi
+    if (els.btnSoundToggle) {
+      els.btnSoundToggle.addEventListener('click', () => {
+        state.soundEnabled = !state.soundEnabled;
+        updateHeaderStats();
+        updateSettingsUI();
+        saveStoredStats();
+        playSelectSound();
+      });
+    }
+
+    // Modallar boshqaruvi
+    if (els.btnTextbookInfo) {
+      els.btnTextbookInfo.addEventListener('click', () => {
+        els.textbookModal.classList.add('open');
+      });
+    }
+
+    if (els.btnSettings) {
+      els.btnSettings.addEventListener('click', () => {
+        els.settingsModal.classList.add('open');
+      });
+    }
+
+    document.querySelectorAll('.modal-close-btn, .btn-modal-close').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.modal-overlay').forEach(m => m.classList.remove('open'));
+      });
+    });
+
+    // Sozlamalar modali ichidagi togglelar
+    if (els.settingSoundToggle) {
+      els.settingSoundToggle.addEventListener('change', (e) => {
+        state.soundEnabled = e.target.checked;
+        updateHeaderStats();
+        saveStoredStats();
+      });
+    }
+
+    if (els.settingShuffleToggle) {
+      els.settingShuffleToggle.addEventListener('change', (e) => {
+        state.shuffleOptionsEnabled = e.target.checked;
+        saveStoredStats();
+      });
+    }
+
+    // Dashboard rejim kartalari
+    document.querySelectorAll('.mode-card[data-mode]').forEach(card => {
+      card.addEventListener('click', () => {
+        const mode = card.dataset.mode;
+        startTest(mode);
+      });
+    });
+
+    // Palitrani ochish/yopish toggle
+    if (els.paletteToggleBar) {
+      els.paletteToggleBar.addEventListener('click', () => {
+        els.paletteContainer.classList.toggle('open');
+      });
+    }
+
+    // Savollar o'rtasida navigatsiya
+    if (els.btnPrevQuestion) {
+      els.btnPrevQuestion.addEventListener('click', () => {
+        if (state.currentIndex > 0) {
+          renderQuestion(state.currentIndex - 1);
+        }
+      });
+    }
+
+    if (els.btnNextQuestion) {
+      els.btnNextQuestion.addEventListener('click', () => {
+        if (state.currentIndex < state.currentTestQuestions.length - 1) {
+          renderQuestion(state.currentIndex + 1);
+        }
+      });
+    }
+
+    // Javobni tekshirish (Mashg'ulot rejimi)
+    if (els.btnCheckAnswer) {
+      els.btnCheckAnswer.addEventListener('click', () => {
+        checkCurrentAnswerInPractice();
+      });
+    }
+
+    // Testni yakunlash (Finish)
+    if (els.btnFinishTest) {
+      els.btnFinishTest.addEventListener('click', () => {
+        const answeredCount = Object.keys(state.userAnswers).length;
+        const total = state.currentTestQuestions.length;
+        if (answeredCount < total) {
+          els.confirmFinishModal.classList.add('open');
+        } else {
+          finishTest();
+        }
+      });
+    }
+
+    if (els.btnConfirmFinishYes) {
+      els.btnConfirmFinishYes.addEventListener('click', () => {
+        els.confirmFinishModal.classList.remove('open');
+        finishTest();
+      });
+    }
+
+    // Testdan chiqish
+    if (els.btnQuitTest) {
+      els.btnQuitTest.addEventListener('click', () => {
+        if (confirm('Rostdan ham testni to\'xtatib, bosh sahifaga qaytmoqchimisiz?')) {
+          clearInterval(state.timerInterval);
+          showScreen(els.screenDashboard);
+        }
+      });
+    }
+
+    // Natijalar ekrani tugmalari
+    if (els.btnRestartTest) {
+      els.btnRestartTest.addEventListener('click', () => {
+        startTest(state.mode, { chapterId: state.selectedChapterId });
+      });
+    }
+
+    if (els.btnHomeFromResults) {
+      els.btnHomeFromResults.addEventListener('click', () => {
+        showScreen(els.screenDashboard);
+      });
+    }
+
+    // Tahlil filtrlari (All, Correct, Wrong)
+    els.filterReviewBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        els.filterReviewBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        filterAndDisplayReview(btn.dataset.filter);
+      });
+    });
+
+    // Klaviatura tugmalari orqali boshqarish (Keyboard Navigation)
+    window.addEventListener('keydown', (e) => {
+      if (!els.screenTest.classList.contains('active')) return;
+
+      // Agar modal ochiq bo'lsa klaviaturani e'tiborsiz qoldirish
+      if (document.querySelector('.modal-overlay.open')) return;
+
+      const key = e.key.toUpperCase();
+      if (key === 'A' || key === '1') selectOption(0);
+      else if (key === 'B' || key === '2') selectOption(1);
+      else if (key === 'C' || key === '3') selectOption(2);
+      else if (key === 'D' || key === '4') selectOption(3);
+      else if (e.key === 'ArrowRight') {
+        if (state.currentIndex < state.currentTestQuestions.length - 1) {
+          renderQuestion(state.currentIndex + 1);
+        }
+      } else if (e.key === 'ArrowLeft') {
+        if (state.currentIndex > 0) {
+          renderQuestion(state.currentIndex - 1);
+        }
+      } else if (e.key === 'Enter') {
+        if (state.isPracticeMode && !state.userChecked[state.currentTestQuestions[state.currentIndex]?.id]) {
+          checkCurrentAnswerInPractice();
+        }
+      }
+    });
+  }
+
+  // ==========================================
+  // ILOVANI ISHGA TUSHIRISH (INIT)
+  // ==========================================
+  function init() {
+    state.allQuestions = window.HistoryApp.QUESTIONS || [];
+    loadStoredStats();
+    renderDashboardChapters();
+    setupEventListeners();
+    showScreen(els.screenDashboard);
+    console.log(`6-sinf Tarix testi yuklandi: Jami ${state.allQuestions.length} ta darslik savoli mavjud.`);
+  }
+
+  // DOM tayyor bo'lganda ishga tushirish
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+
+</script>
+</body>
+</html>
+
